@@ -23,6 +23,8 @@ using Str      = std::string;
 using Str_List = std::vector<Str>;
 using Str_View = std::experimental::string_view;
 
+using Buffer = std::vector<u8>;
+
 template <typename ...T> using Seq     = std::vector<T...>;
 template <typename ...T> using List    = std::list<T...>;
 template <typename ...T> using Queue   = std::queue<T...>;

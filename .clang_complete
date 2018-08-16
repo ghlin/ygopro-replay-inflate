@@ -1,5 +1,5 @@
 -W
 -Wall
 -Wextra
--std=c++1z
+-std=c++20
 -DDEBUG=1
