@@ -16,7 +16,7 @@ buffer_next( buffer_ptr *in
   const auto span = sizeof (X);
   if (end < *in + span) {
     RiPanicF( "end of buffer reached when parsing %s\n"
-              "                           in file %s\n"
+              "                           in func %s\n"
               "                           at line %d"
             , label
             , func
