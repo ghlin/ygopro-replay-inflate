@@ -17,11 +17,11 @@ using u64 = std::uint64_t;
 using std::size_t;
 
 template <typename T>
-using Opt = std::experimental::optional<T>;
+using Opt = std::optional<T>;
 
 using Str      = std::string;
 using Str_List = std::vector<Str>;
-using Str_View = std::experimental::string_view;
+using Str_View = std::string_view;
 
 using Buffer = std::vector<u8>;
 
@@ -32,6 +32,7 @@ template <typename ...T> using Deque   = std::deque<T...>;
 template <typename ...T> using Stack   = std::stack<T...>;
 template <typename ...T> using Map     = std::map<T...>;
 template <typename ...T> using Set     = std::set<T...>;
+template <typename ...T> using Variant = std::variant<T...>;
 template <typename ...T> using HashMap = std::unordered_map<T...>;
 template <typename ...T> using HashSet = std::unordered_set<T...>;
 template <typename ...T> using Arc     = std::shared_ptr<T...>;

@@ -20,16 +20,23 @@
 
 // string
 #include <string>
-#include <experimental/string_view>
+#include <string_view>
+#include <variant>
 
 // smart pointers
 #include <memory>
 
 // nullable
-#include <experimental/optional>
+#include <optional>
+
+// tagged union
+#include <variant>
+
+// type-erasure container
+#include <any>
 
 // better tuple
-#include <experimental/tuple>
+#include <tuple>
 
 // exceptions
 #include <exception>
