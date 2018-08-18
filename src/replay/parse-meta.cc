@@ -2,12 +2,10 @@
 #include "../support.h"
 #include "../lzma/LzmaLib.h"
 
-namespace ri {
+namespace ri::replay {
 
 static_assert(sizeof (ReplayHeader) == 32);
 static_assert(sizeof (ReplayDuelConfig) == 16);
-
-using buffer_ptr = const u8 *;
 
 Deck parse_deck(buffer_ptr *ppbuff);
 
@@ -88,10 +86,7 @@ parse_replay_meta(const Buffer &buffer)
   for (auto i = 0; i != nplayers; ++i)
     players[i].deck = parse_deck(&raw_data);
 
-  const auto raw_data_size =
-    uncompressed_buffer.size() - (raw_data - &uncompressed_buffer.front());
-
-  const auto raw_data_end = raw_data + raw_data_size;
+  const auto *raw_data_end = &uncompressed_buffer.back();
   return { header
          , config
          , players
@@ -124,5 +119,5 @@ parse_deck(buffer_ptr *ppbuff)
   return { main, extra };
 }
 
-} // namespace ri
+} // namespace ri::replay
 

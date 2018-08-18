@@ -2,7 +2,7 @@
 
 #include "../prelude.h"
 
-namespace ri {
+namespace ri::replay {
 
 using CardList = Seq<i32>;
 
@@ -59,5 +59,5 @@ struct ReplayMeta {
 ReplayMeta
 parse_replay_meta(const Buffer &buffer);
 
-} // namespace ri
+} // namespace ri::replay
 

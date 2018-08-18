@@ -14,6 +14,8 @@ using u16 = std::uint16_t;
 using u32 = std::uint32_t;
 using u64 = std::uint64_t;
 
+using buffer_ptr = const u8 *;
+
 using std::size_t;
 
 template <typename T>

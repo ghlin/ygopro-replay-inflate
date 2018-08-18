@@ -105,6 +105,7 @@ unpack_CoreMsg_SELECT_BATTLECMD(buffer_ptr *in, buffer_ptr end)
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
     unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
+    unpacking.subsequence = buffer_next<u8>(in, end, "(subsequence / u8)", __LINE__, __func__);
     out.candidates2.emplace_back(std::move(unpacking));
   }
   out.to_main2_phase = buffer_next<u8>(in, end, "(to_main2_phase / u8)", __LINE__, __func__);
@@ -170,12 +171,13 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto active_candidates = buffer_next<u8>(in, end, "(active_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != active_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
+    using unpacking_type = CoreMsg_SELECT_IDLECMD::ActiveCandidate;
     unpacking_type unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
     unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
+    unpacking.desc = buffer_next<u32>(in, end, "(desc / u32)", __LINE__, __func__);
     out.active_candidates.emplace_back(std::move(unpacking));
   }
   out.to_battle_phase = buffer_next<u8>(in, end, "(to_battle_phase / u8)", __LINE__, __func__);
@@ -373,7 +375,7 @@ unpack_CoreMsg_SELECT_COUNTER(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   out.select_counter_type = buffer_next<u16>(in, end, "(select_counter_type / u16)", __LINE__, __func__);
   out.select_counter_count = buffer_next<u16>(in, end, "(select_counter_count / u16)", __LINE__, __func__);
-  const auto candidates = buffer_next<u16>(in, end, "(candidates / u16)", __LINE__, __func__);
+  const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
     using unpacking_type = CoreMsg_SELECT_COUNTER::Candidate;
     unpacking_type unpacking;
@@ -550,7 +552,13 @@ unpack_CoreMsg_SHUFFLE_HAND(buffer_ptr *in, buffer_ptr end)
   (void)in; (void)end;
   CoreMsg_SHUFFLE_HAND out;
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
-  out.count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
+  const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != cards; ++i) {
+    using unpacking_type = CoreMsg_SHUFFLE_HAND::Card;
+    unpacking_type unpacking;
+    unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
+    out.cards.emplace_back(std::move(unpacking));
+  }
   return out;
 }
 
@@ -560,7 +568,13 @@ unpack_CoreMsg_SHUFFLE_EXTRA(buffer_ptr *in, buffer_ptr end)
   (void)in; (void)end;
   CoreMsg_SHUFFLE_EXTRA out;
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
-  out.count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
+  const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != cards; ++i) {
+    using unpacking_type = CoreMsg_SHUFFLE_EXTRA::Card;
+    unpacking_type unpacking;
+    unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
+    out.cards.emplace_back(std::move(unpacking));
+  }
   return out;
 }
 
@@ -1018,12 +1032,14 @@ unpack_CoreMsg_BATTLE(buffer_ptr *in, buffer_ptr end)
   out.atk_controller = buffer_next<u8>(in, end, "(atk_controller / u8)", __LINE__, __func__);
   out.atk_location = buffer_next<u8>(in, end, "(atk_location / u8)", __LINE__, __func__);
   out.atk_sequence = buffer_next<u8>(in, end, "(atk_sequence / u8)", __LINE__, __func__);
+  out.atk_subsequence = buffer_next<u8>(in, end, "(atk_subsequence / u8)", __LINE__, __func__);
   out.atk_atkvalue = buffer_next<u32>(in, end, "(atk_atkvalue / u32)", __LINE__, __func__);
   out.atk_defvalue = buffer_next<u32>(in, end, "(atk_defvalue / u32)", __LINE__, __func__);
   out.atk_ignore = buffer_next<u8>(in, end, "(atk_ignore / u8)", __LINE__, __func__);
   out.def_controller = buffer_next<u8>(in, end, "(def_controller / u8)", __LINE__, __func__);
   out.def_location = buffer_next<u8>(in, end, "(def_location / u8)", __LINE__, __func__);
   out.def_sequence = buffer_next<u8>(in, end, "(def_sequence / u8)", __LINE__, __func__);
+  out.def_subsequence = buffer_next<u8>(in, end, "(def_subsequence / u8)", __LINE__, __func__);
   out.def_atkvalue = buffer_next<u32>(in, end, "(def_atkvalue / u32)", __LINE__, __func__);
   out.def_defvalue = buffer_next<u32>(in, end, "(def_defvalue / u32)", __LINE__, __func__);
   out.def_ignore = buffer_next<u8>(in, end, "(def_ignore / u8)", __LINE__, __func__);

@@ -55,6 +55,7 @@ struct CoreMsg_SELECT_BATTLECMD {
     u8  controller;
     u8  location;
     u8  sequence;
+    u8  subsequence;
   };
   std::vector<Candidate2> candidates2;
   u8  to_main2_phase;
@@ -78,8 +79,14 @@ struct CoreMsg_SELECT_IDLECMD {
   std::vector<Candidate> mset_candidates;
   // already defined Candidate
   std::vector<Candidate> sset_candidates;
-  // already defined Candidate
-  std::vector<Candidate> active_candidates;
+  struct ActiveCandidate {
+    u32 code;
+    u8  controller;
+    u8  location;
+    u8  sequence;
+    u32 desc;
+  };
+  std::vector<ActiveCandidate> active_candidates;
   u8  to_battle_phase;
   u8  to_end_phase;
   u8  can_shuffle;
@@ -305,12 +312,18 @@ struct CoreMsg_SWAP_GRAVE_DECK {
 
 struct CoreMsg_SHUFFLE_HAND {
   u8  player;
-  u8  count;
+  struct Card {
+    u32 code;
+  };
+  std::vector<Card> cards;
 };
 
 struct CoreMsg_SHUFFLE_EXTRA {
   u8  player;
-  u8  count;
+  struct Card {
+    u32 code;
+  };
+  std::vector<Card> cards;
 };
 
 struct CoreMsg_REVERSE_DECK {
@@ -569,12 +582,14 @@ struct CoreMsg_BATTLE {
   u8  atk_controller;
   u8  atk_location;
   u8  atk_sequence;
+  u8  atk_subsequence;
   u32 atk_atkvalue;
   u32 atk_defvalue;
   u8  atk_ignore;
   u8  def_controller;
   u8  def_location;
   u8  def_sequence;
+  u8  def_subsequence;
   u32 def_atkvalue;
   u32 def_defvalue;
   u8  def_ignore;
