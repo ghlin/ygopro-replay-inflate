@@ -49,9 +49,13 @@ init_core_engine()
 }
 
 Seq<core_msg::CoreMsg>
-replay(const Buffer &replay_content)
+simulate(const ReplayMeta &meta)
 {
-  auto meta = parse_replay_meta(replay_content);
+  if (meta.header.flag & REPLAY_TAG) {
+    std::fprintf( stderr
+                , "[ERROR] sorry, TAG duel not supported\n");
+    throw std::runtime_error("unsupported duel mode");
+  }
 
   auto engine = setup_core_engine(meta.header.seed);
 

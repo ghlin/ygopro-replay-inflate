@@ -4,6 +4,8 @@
 
 namespace ri::replay {
 
+struct ReplayMeta;
+
 /**
  * replays a replay.
  *
@@ -12,7 +14,7 @@ namespace ri::replay {
  *
  */
 Seq<core_msg::CoreMsg>
-replay(const Buffer &replay_content);
+simulate(const ReplayMeta &meta);
 
 /**
  * initialize ocgcore.
