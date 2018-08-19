@@ -36,8 +36,7 @@ Replayer::handle_message( Seq<core_msg::CoreMsg> *messages
   const auto end_of_buffer = buffer + len;
   buffer_ptr pbuff = buffer;
 
-  while (pbuff != end_of_buffer)
-  {
+  while (pbuff != end_of_buffer) {
     if (pbuff > end_of_buffer) {
       return false;
     }
@@ -50,38 +49,40 @@ Replayer::handle_message( Seq<core_msg::CoreMsg> *messages
     const auto remain = end_of_buffer - pbuff;
     const auto msg    = core_msg::unpack_one(&pbuff, remain);
 
-    switch (msg_type)
-    {
+    switch (msg_type) {
     case MSG_SELECT_BATTLECMD:
     case MSG_SELECT_IDLECMD:
     case MSG_SELECT_EFFECTYN:
-		case MSG_SELECT_YESNO:
-		case MSG_SELECT_OPTION:
-		case MSG_SELECT_CARD:
-		case MSG_SELECT_TRIBUTE:
-		case MSG_SELECT_UNSELECT_CARD:
-		case MSG_SELECT_CHAIN:
-		case MSG_SELECT_PLACE:
-		case MSG_SELECT_DISFIELD:
-		case MSG_SELECT_POSITION:
-		case MSG_SELECT_COUNTER:
-		case MSG_SELECT_SUM:
-		case MSG_SORT_CARD:
-		case MSG_SORT_CHAIN:
-		case MSG_ROCK_PAPER_SCISSORS:
-		case MSG_ANNOUNCE_RACE:
-		case MSG_ANNOUNCE_ATTRIB:
-		case MSG_ANNOUNCE_CARD:
-		case MSG_ANNOUNCE_NUMBER:
-		case MSG_ANNOUNCE_CARD_FILTER:
+    case MSG_SELECT_YESNO:
+    case MSG_SELECT_OPTION:
+    case MSG_SELECT_CARD:
+    case MSG_SELECT_TRIBUTE:
+    case MSG_SELECT_UNSELECT_CARD:
+    case MSG_SELECT_CHAIN:
+    case MSG_SELECT_PLACE:
+    case MSG_SELECT_DISFIELD:
+    case MSG_SELECT_POSITION:
+    case MSG_SELECT_COUNTER:
+    case MSG_SELECT_SUM:
+    case MSG_SORT_CARD:
+    case MSG_SORT_CHAIN:
+    case MSG_ROCK_PAPER_SCISSORS:
+    case MSG_ANNOUNCE_RACE:
+    case MSG_ANNOUNCE_ATTRIB:
+    case MSG_ANNOUNCE_CARD:
+    case MSG_ANNOUNCE_NUMBER:
+    case MSG_ANNOUNCE_CARD_FILTER:
       if (!next_response(engine, &next, &meta.data.back())) {
         return false;
       }
     }
 
     messages->emplace_back(std::move(msg));
+    if (msg_type == MSG_WIN) {
+      // duel was ended
+      return false;
+    }
   }
-
   return true;
 }
 
