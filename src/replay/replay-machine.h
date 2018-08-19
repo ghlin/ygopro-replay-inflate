@@ -1,5 +1,6 @@
 #pragma once
 #include "../prelude.h"
+#include "../core-msg/interface.h"
 
 namespace ri::replay {
 
@@ -10,7 +11,8 @@ namespace ri::replay {
  * returned from ocgcore
  *
  */
-void replay(const Buffer &replay_content);
+Seq<core_msg::CoreMsg>
+replay(const Buffer &replay_content);
 
 /**
  * initialize ocgcore.

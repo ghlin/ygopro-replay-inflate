@@ -1,8 +1,7 @@
 #include "handle-message.h"
 #include "../core-msg/unpack.h"
 #include "../core-msg/dump.h"
-#include "../core/ocgapi.h"
-#include "../support.h"
+#include "../3rd-part/core/ocgapi.h"
 
 namespace ri::replay {
 
@@ -10,23 +9,18 @@ bool
 next_response(long engine, buffer_ptr *buff, buffer_ptr end)
 {
   if (*buff == end) {
-    RiLogE("replay-data-buffer reached end-of-buffer");
-
     return false;
   }
 
   auto len = *((*buff)++);
 
   if (*buff + len > end) {
-    RiLogE("replay-data-buffer reached end-of-buffer");
-
     return false;
   }
 
   u8 resp_buff[100];
   std::memcpy(resp_buff, *buff, len);
 
-  RiLogI("respond with %d bytes data", len);
   set_responseb(engine, resp_buff);
 
   *buff += len;
@@ -35,7 +29,9 @@ next_response(long engine, buffer_ptr *buff, buffer_ptr end)
 }
 
 bool
-Replayer::handle_message(buffer_ptr buffer, size_t len)
+Replayer::handle_message( Seq<core_msg::CoreMsg> *messages
+                        , buffer_ptr buffer
+                        , size_t len)
 {
   const auto end_of_buffer = buffer + len;
   buffer_ptr pbuff = buffer;
@@ -43,33 +39,16 @@ Replayer::handle_message(buffer_ptr buffer, size_t len)
   while (pbuff != end_of_buffer)
   {
     if (pbuff > end_of_buffer) {
-      RiLogE("buffer out of bound.");
       return false;
     }
 
     const auto msg_type = *pbuff;
-    const size_t buffer_length_remain = end_of_buffer - pbuff;
-
     if (msg_type == MSG_RETRY) {
       return false;
     }
 
-    if (msg_type == MSG_UPDATE_DATA) {
-      RiLogI("TODO :: MSG_UPDATE_DATA");
-      return true;
-    }
-
-    if (msg_type == MSG_UPDATE_CARD) {
-      RiLogI("TODO :: MSG_UPDATE_CARD");
-      return true;
-    }
-
-    auto save = pbuff;
-
-    const auto msg = core_msg::unpack_one(&pbuff, buffer_length_remain);
-
-    RiLogI("message type  = %d, span = %d, remain = %zu", msg_type, pbuff - save, buffer_length_remain);
-    RiLogI(reindent("core > ", core_msg::dump(msg)));
+    const auto remain = end_of_buffer - pbuff;
+    const auto msg    = core_msg::unpack_one(&pbuff, remain);
 
     switch (msg_type)
     {
@@ -98,9 +77,9 @@ Replayer::handle_message(buffer_ptr buffer, size_t len)
       if (!next_response(engine, &next, &meta.data.back())) {
         return false;
       }
-
-      break;
     }
+
+    messages->emplace_back(std::move(msg));
   }
 
   return true;

@@ -1,6 +1,5 @@
 #include "parse-meta.h"
-#include "../support.h"
-#include "../lzma/LzmaLib.h"
+#include "../3rd-part/lzma/LzmaLib.h"
 
 namespace ri::replay {
 
@@ -21,7 +20,11 @@ uncompress( const u8 *raw_data
 
 #define UNCOMPRESS_BUFFER_SIZE 0x10000
   if (UNCOMPRESS_BUFFER_SIZE < replay_size) {
-    RiPanicF("replay file too large!");
+    std::fprintf( stderr
+                , "[ERROR] replay file too large! buffer size: %d, replay file size: %zu\n"
+                , UNCOMPRESS_BUFFER_SIZE
+                , replay_size);
+    throw std::runtime_error("replay file too large!");
   }
 
   unsigned char uncompress_buffer[UNCOMPRESS_BUFFER_SIZE];
@@ -35,11 +38,13 @@ uncompress( const u8 *raw_data
                                                , 5);
 
   if (uncompress_result != SZ_OK) {
-    RiPanicF( "uncompress failed: %s"
-            , uncompress_result == SZ_ERROR_DATA        ? "SZ_ERROR_DATA"
-            : uncompress_result == SZ_ERROR_UNSUPPORTED ? "SZ_ERROR_UNSUPPORTED"
-            : uncompress_result == SZ_ERROR_INPUT_EOF   ? "SZ_ERROR_INPUT_EOF"
-            : "unknown reason");
+    std::fprintf( stderr
+                , "[ERROR] failed to uncompress replay file: %s\n"
+                , uncompress_result == SZ_ERROR_DATA        ? "SZ_ERROR_DATA"
+                : uncompress_result == SZ_ERROR_UNSUPPORTED ? "SZ_ERROR_UNSUPPORTED"
+                : uncompress_result == SZ_ERROR_INPUT_EOF   ? "SZ_ERROR_INPUT_EOF"
+                : "unknown reason");
+    throw std::runtime_error("failed to uncompress replay file");
   }
 
   return Buffer(uncompress_buffer, uncompress_buffer + replay_size);
@@ -62,7 +67,9 @@ parse_replay_meta(const Buffer &buffer)
                       : 2;
 
   if (!nplayers) {
-    RiPanicF("unsupported replay mode, header.flag = %04x", header.flag);
+    std::fprintf( stderr
+                , "[ERROR] replay mode unsupported\n");
+    throw std::runtime_error("replay mode unspported");
   }
 
   Seq<ReplayPlayer> players;

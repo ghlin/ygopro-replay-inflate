@@ -2,118 +2,82 @@
 
 CC              :=gcc
 CXX             :=g++
-PREFLAGS        := '-I../src' -Wall -Wextra -W
+PREFLAGS        := -I../src
 PRELNKFLAGS     := -llua
 CFLAGS          :=
 CXXFLAGS        := -std=c++17
 FLAGS           :=
 LNKFLAGS        :=
 
-all : objs objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_prelude__util.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_lzma__LzmaDec.o objs/___src_lzma__LzmaEnc.o objs/___src_lzma__LzFind.o objs/___src_lzma__LzmaLib.o objs/___src_lzma__Alloc.o objs/___src_support__bootstrap.o objs/___src_support__debug.o objs/___src_support__app.o objs/___src_support__file-io.o objs/___src_ygo-data__load.o objs/___src_core__ocgapi.o objs/___src_core__group.o objs/___src_core__libduel.o objs/___src_core__scriptlib.o objs/___src_core__effect.o objs/___src_core__libdebug.o objs/___src_core__duel.o objs/___src_core__processor.o objs/___src_core__mem.o objs/___src_core__interpreter.o objs/___src_core__playerop.o objs/___src_core__libcard.o objs/___src_core__libgroup.o objs/___src_core__operations.o objs/___src_core__card.o objs/___src_core__libeffect.o objs/___src_core__field.o replay
+all : objs objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_support__file-io.o objs/___src_3rd-part_lzma__LzmaDec.o objs/___src_3rd-part_lzma__LzmaEnc.o objs/___src_3rd-part_lzma__LzFind.o objs/___src_3rd-part_lzma__LzmaLib.o objs/___src_3rd-part_lzma__Alloc.o objs/___src_3rd-part_core__ocgapi.o objs/___src_3rd-part_core__group.o objs/___src_3rd-part_core__libduel.o objs/___src_3rd-part_core__scriptlib.o objs/___src_3rd-part_core__effect.o objs/___src_3rd-part_core__libdebug.o objs/___src_3rd-part_core__duel.o objs/___src_3rd-part_core__processor.o objs/___src_3rd-part_core__mem.o objs/___src_3rd-part_core__interpreter.o objs/___src_3rd-part_core__playerop.o objs/___src_3rd-part_core__libcard.o objs/___src_3rd-part_core__libgroup.o objs/___src_3rd-part_core__operations.o objs/___src_3rd-part_core__card.o objs/___src_3rd-part_core__libeffect.o objs/___src_3rd-part_core__field.o replay
 
 .PHONY: objs
 objs :
 	@[ -d objs ] || mkdir objs
 
-replay : objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_prelude__util.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_lzma__LzmaDec.o objs/___src_lzma__LzmaEnc.o objs/___src_lzma__LzFind.o objs/___src_lzma__LzmaLib.o objs/___src_lzma__Alloc.o objs/___src_support__bootstrap.o objs/___src_support__debug.o objs/___src_support__app.o objs/___src_support__file-io.o objs/___src_ygo-data__load.o objs/___src_core__ocgapi.o objs/___src_core__group.o objs/___src_core__libduel.o objs/___src_core__scriptlib.o objs/___src_core__effect.o objs/___src_core__libdebug.o objs/___src_core__duel.o objs/___src_core__processor.o objs/___src_core__mem.o objs/___src_core__interpreter.o objs/___src_core__playerop.o objs/___src_core__libcard.o objs/___src_core__libgroup.o objs/___src_core__operations.o objs/___src_core__card.o objs/___src_core__libeffect.o objs/___src_core__field.o
+replay : objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_support__file-io.o objs/___src_3rd-part_lzma__LzmaDec.o objs/___src_3rd-part_lzma__LzmaEnc.o objs/___src_3rd-part_lzma__LzFind.o objs/___src_3rd-part_lzma__LzmaLib.o objs/___src_3rd-part_lzma__Alloc.o objs/___src_3rd-part_core__ocgapi.o objs/___src_3rd-part_core__group.o objs/___src_3rd-part_core__libduel.o objs/___src_3rd-part_core__scriptlib.o objs/___src_3rd-part_core__effect.o objs/___src_3rd-part_core__libdebug.o objs/___src_3rd-part_core__duel.o objs/___src_3rd-part_core__processor.o objs/___src_3rd-part_core__mem.o objs/___src_3rd-part_core__interpreter.o objs/___src_3rd-part_core__playerop.o objs/___src_3rd-part_core__libcard.o objs/___src_3rd-part_core__libgroup.o objs/___src_3rd-part_core__operations.o objs/___src_3rd-part_core__card.o objs/___src_3rd-part_core__libeffect.o objs/___src_3rd-part_core__field.o
 	@echo Linking: replay
-	@g++ objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_prelude__util.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_lzma__LzmaDec.o objs/___src_lzma__LzmaEnc.o objs/___src_lzma__LzFind.o objs/___src_lzma__LzmaLib.o objs/___src_lzma__Alloc.o objs/___src_support__bootstrap.o objs/___src_support__debug.o objs/___src_support__app.o objs/___src_support__file-io.o objs/___src_ygo-data__load.o objs/___src_core__ocgapi.o objs/___src_core__group.o objs/___src_core__libduel.o objs/___src_core__scriptlib.o objs/___src_core__effect.o objs/___src_core__libdebug.o objs/___src_core__duel.o objs/___src_core__processor.o objs/___src_core__mem.o objs/___src_core__interpreter.o objs/___src_core__playerop.o objs/___src_core__libcard.o objs/___src_core__libgroup.o objs/___src_core__operations.o objs/___src_core__card.o objs/___src_core__libeffect.o objs/___src_core__field.o -o replay ${LNKFLAGS} ${PRELNKFLAGS}
+	@g++ objs/___src__app.o objs/___src_replay__replay-machine.o objs/___src_replay__handle-message.o objs/___src_replay__load-core-cards.o objs/___src_replay__parse-meta.o objs/___src_core-msg__unpack.o objs/___src_core-msg__dump.o objs/___src_support__file-io.o objs/___src_3rd-part_lzma__LzmaDec.o objs/___src_3rd-part_lzma__LzmaEnc.o objs/___src_3rd-part_lzma__LzFind.o objs/___src_3rd-part_lzma__LzmaLib.o objs/___src_3rd-part_lzma__Alloc.o objs/___src_3rd-part_core__ocgapi.o objs/___src_3rd-part_core__group.o objs/___src_3rd-part_core__libduel.o objs/___src_3rd-part_core__scriptlib.o objs/___src_3rd-part_core__effect.o objs/___src_3rd-part_core__libdebug.o objs/___src_3rd-part_core__duel.o objs/___src_3rd-part_core__processor.o objs/___src_3rd-part_core__mem.o objs/___src_3rd-part_core__interpreter.o objs/___src_3rd-part_core__playerop.o objs/___src_3rd-part_core__libcard.o objs/___src_3rd-part_core__libgroup.o objs/___src_3rd-part_core__operations.o objs/___src_3rd-part_core__card.o objs/___src_3rd-part_core__libeffect.o objs/___src_3rd-part_core__field.o -o replay ${LNKFLAGS} ${PRELNKFLAGS}
 
 objs/___src__app.o : \
- ../src/app.cc ../src/support.h ../src/support/debug.h \
- ../src/support/format.h ../src/support/../prelude.h \
- ../src/support/../prelude/pp.h ../src/support/../prelude/stdincl.h \
- ../src/support/../prelude/stdalias.h \
- ../src/support/../prelude/memberdetect.h \
- ../src/support/../prelude/util.h ../src/support/tuple.h \
- ../src/support/string.h ../src/support/inhchain.h ../src/support/misc.h \
- ../src/support/file-io.h ../src/replay/replay-machine.h
+ ../src/app.cc ../src/support/file-io.h ../src/support/../prelude.h \
+ ../src/replay/replay-machine.h ../src/replay/../core-msg/interface.h \
+ ../src/replay/../core-msg/core-msg.gen.h \
+ ../src/replay/../core-msg/core-msg-variant-def.gen.h \
+ ../src/core-msg/dump.h ../src/3rd-part/nlohmann-json/json.hpp
 	@echo "compile(${CXX}) - ../src/app.cc"
 	@${CXX} -c ../src/app.cc -o objs/___src__app.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 objs/___src_replay__replay-machine.o : \
  ../src/replay/replay-machine.cc \
  ../src/replay/replay-machine.h ../src/replay/../prelude.h \
- ../src/replay/../prelude/pp.h ../src/replay/../prelude/stdincl.h \
- ../src/replay/../prelude/stdalias.h \
- ../src/replay/../prelude/memberdetect.h ../src/replay/../prelude/util.h \
+ ../src/replay/../core-msg/interface.h \
+ ../src/replay/../core-msg/core-msg.gen.h \
+ ../src/replay/../core-msg/core-msg-variant-def.gen.h \
  ../src/replay/parse-meta.h ../src/replay/handle-message.h \
- ../src/replay/load-core-cards.h ../src/replay/../core/card.h \
- ../src/replay/../core/common.h ../src/replay/../core/effectset.h \
- ../src/replay/../core/ocgapi.h ../src/replay/../core/mtrandom.h \
- ../src/replay/../support.h ../src/replay/../support/debug.h \
- ../src/replay/../support/format.h ../src/replay/../support/tuple.h \
- ../src/replay/../support/string.h ../src/replay/../support/inhchain.h \
- ../src/replay/../support/misc.h ../src/replay/../support/file-io.h
+ ../src/replay/load-core-cards.h ../src/replay/../3rd-part/core/card.h \
+ ../src/replay/../3rd-part/core/common.h \
+ ../src/replay/../3rd-part/core/effectset.h \
+ ../src/replay/../3rd-part/core/ocgapi.h \
+ ../src/replay/../3rd-part/core/mtrandom.h
 	@echo "compile(${CXX}) - ../src/replay/replay-machine.cc"
 	@${CXX} -c ../src/replay/replay-machine.cc -o objs/___src_replay__replay-machine.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 objs/___src_replay__handle-message.o : \
  ../src/replay/handle-message.cc \
  ../src/replay/handle-message.h ../src/replay/../prelude.h \
- ../src/replay/../prelude/pp.h ../src/replay/../prelude/stdincl.h \
- ../src/replay/../prelude/stdalias.h \
- ../src/replay/../prelude/memberdetect.h ../src/replay/../prelude/util.h \
- ../src/replay/parse-meta.h ../src/replay/../core-msg/unpack.h \
  ../src/replay/../core-msg/interface.h \
  ../src/replay/../core-msg/core-msg.gen.h \
  ../src/replay/../core-msg/core-msg-variant-def.gen.h \
- ../src/replay/../core-msg/dump.h ../src/replay/../core/ocgapi.h \
- ../src/replay/../core/common.h ../src/replay/../support.h \
- ../src/replay/../support/debug.h ../src/replay/../support/format.h \
- ../src/replay/../support/tuple.h ../src/replay/../support/string.h \
- ../src/replay/../support/inhchain.h ../src/replay/../support/misc.h \
- ../src/replay/../support/file-io.h
+ ../src/replay/parse-meta.h ../src/replay/../core-msg/unpack.h \
+ ../src/replay/../core-msg/dump.h ../src/replay/../3rd-part/core/ocgapi.h \
+ ../src/replay/../3rd-part/core/common.h
 	@echo "compile(${CXX}) - ../src/replay/handle-message.cc"
 	@${CXX} -c ../src/replay/handle-message.cc -o objs/___src_replay__handle-message.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 objs/___src_replay__load-core-cards.o : \
  ../src/replay/load-core-cards.cc \
  ../src/replay/load-core-cards.h ../src/replay/../prelude.h \
- ../src/replay/../prelude/pp.h ../src/replay/../prelude/stdincl.h \
- ../src/replay/../prelude/stdalias.h \
- ../src/replay/../prelude/memberdetect.h ../src/replay/../prelude/util.h \
- ../src/replay/../core/card.h ../src/replay/../core/common.h \
- ../src/replay/../core/effectset.h \
- ../src/replay/../nlohmann-json/json.hpp ../src/replay/../support.h \
- ../src/replay/../support/debug.h ../src/replay/../support/format.h \
- ../src/replay/../support/tuple.h ../src/replay/../support/string.h \
- ../src/replay/../support/inhchain.h ../src/replay/../support/misc.h \
- ../src/replay/../support/file-io.h
+ ../src/replay/../3rd-part/core/card.h \
+ ../src/replay/../3rd-part/core/common.h \
+ ../src/replay/../3rd-part/core/effectset.h \
+ ../src/replay/../3rd-part/nlohmann-json/json.hpp
 	@echo "compile(${CXX}) - ../src/replay/load-core-cards.cc"
 	@${CXX} -c ../src/replay/load-core-cards.cc -o objs/___src_replay__load-core-cards.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 objs/___src_replay__parse-meta.o : \
  ../src/replay/parse-meta.cc ../src/replay/parse-meta.h \
- ../src/replay/../prelude.h ../src/replay/../prelude/pp.h \
- ../src/replay/../prelude/stdincl.h ../src/replay/../prelude/stdalias.h \
- ../src/replay/../prelude/memberdetect.h ../src/replay/../prelude/util.h \
- ../src/replay/../support.h ../src/replay/../support/debug.h \
- ../src/replay/../support/format.h ../src/replay/../support/tuple.h \
- ../src/replay/../support/string.h ../src/replay/../support/inhchain.h \
- ../src/replay/../support/misc.h ../src/replay/../support/file-io.h \
- ../src/replay/../lzma/LzmaLib.h ../src/replay/../lzma/Types.h
+ ../src/replay/../prelude.h ../src/replay/../3rd-part/lzma/LzmaLib.h \
+ ../src/replay/../3rd-part/lzma/Types.h
 	@echo "compile(${CXX}) - ../src/replay/parse-meta.cc"
 	@${CXX} -c ../src/replay/parse-meta.cc -o objs/___src_replay__parse-meta.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_prelude__util.o : \
- ../src/prelude/util.cc ../src/prelude/util.h \
- ../src/prelude/stdincl.h ../src/prelude/pp.h ../src/prelude/stdalias.h
-	@echo "compile(${CXX}) - ../src/prelude/util.cc"
-	@${CXX} -c ../src/prelude/util.cc -o objs/___src_prelude__util.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 objs/___src_core-msg__unpack.o : \
  ../src/core-msg/unpack.cc ../src/core-msg/unpack.h \
  ../src/core-msg/interface.h ../src/core-msg/../prelude.h \
- ../src/core-msg/../prelude/pp.h ../src/core-msg/../prelude/stdincl.h \
- ../src/core-msg/../prelude/stdalias.h \
- ../src/core-msg/../prelude/memberdetect.h \
- ../src/core-msg/../prelude/util.h ../src/core-msg/core-msg.gen.h \
- ../src/core-msg/core-msg-variant-def.gen.h ../src/core-msg/../support.h \
- ../src/core-msg/../support/debug.h ../src/core-msg/../support/format.h \
- ../src/core-msg/../support/tuple.h ../src/core-msg/../support/string.h \
- ../src/core-msg/../support/inhchain.h ../src/core-msg/../support/misc.h \
- ../src/core-msg/../support/file-io.h ../src/core-msg/../core/common.h \
+ ../src/core-msg/core-msg.gen.h \
+ ../src/core-msg/core-msg-variant-def.gen.h \
+ ../src/core-msg/../3rd-part/core/common.h \
  ../src/core-msg/core-msg-unpack.gen.inl \
  ../src/core-msg/core-msg-switch.gen.inl
 	@echo "compile(${CXX}) - ../src/core-msg/unpack.cc"
@@ -122,278 +86,242 @@ objs/___src_core-msg__unpack.o : \
 objs/___src_core-msg__dump.o : \
  ../src/core-msg/dump.cc ../src/core-msg/dump.h \
  ../src/core-msg/interface.h ../src/core-msg/../prelude.h \
- ../src/core-msg/../prelude/pp.h ../src/core-msg/../prelude/stdincl.h \
- ../src/core-msg/../prelude/stdalias.h \
- ../src/core-msg/../prelude/memberdetect.h \
- ../src/core-msg/../prelude/util.h ../src/core-msg/core-msg.gen.h \
- ../src/core-msg/core-msg-variant-def.gen.h ../src/core-msg/../support.h \
- ../src/core-msg/../support/debug.h ../src/core-msg/../support/format.h \
- ../src/core-msg/../support/tuple.h ../src/core-msg/../support/string.h \
- ../src/core-msg/../support/inhchain.h ../src/core-msg/../support/misc.h \
- ../src/core-msg/../support/file-io.h ../src/core-msg/../core/common.h \
+ ../src/core-msg/core-msg.gen.h \
+ ../src/core-msg/core-msg-variant-def.gen.h \
+ ../src/core-msg/../3rd-part/core/common.h \
  ../src/core-msg/core-msg-dump.gen.inl \
- ../src/core-msg/core-msg-dump-visitor.gen.inl
+ ../src/core-msg/core-msg-dump-visitor.gen.inl \
+ ../src/core-msg/core-msg-dump-json.gen.inl \
+ ../src/core-msg/core-msg-dump-json-visitor.gen.inl
 	@echo "compile(${CXX}) - ../src/core-msg/dump.cc"
 	@${CXX} -c ../src/core-msg/dump.cc -o objs/___src_core-msg__dump.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_lzma__LzmaDec.o : \
- ../src/lzma/LzmaDec.c ../src/lzma/LzmaDec.h \
- ../src/lzma/Types.h
-	@echo "compile(${CXX}) - ../src/lzma/LzmaDec.c"
-	@${CXX} -c ../src/lzma/LzmaDec.c -o objs/___src_lzma__LzmaDec.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_lzma__LzmaEnc.o : \
- ../src/lzma/LzmaEnc.c ../src/lzma/LzmaEnc.h \
- ../src/lzma/Types.h ../src/lzma/LzFind.h
-	@echo "compile(${CXX}) - ../src/lzma/LzmaEnc.c"
-	@${CXX} -c ../src/lzma/LzmaEnc.c -o objs/___src_lzma__LzmaEnc.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_lzma__LzFind.o : \
- ../src/lzma/LzFind.c ../src/lzma/LzFind.h ../src/lzma/Types.h \
- ../src/lzma/LzHash.h
-	@echo "compile(${CC}) - ../src/lzma/LzFind.c"
-	@${CC} -c ../src/lzma/LzFind.c -o objs/___src_lzma__LzFind.o ${FLAGS} ${PREFLAGS} ${CFLAGS}
-
-objs/___src_lzma__LzmaLib.o : \
- ../src/lzma/LzmaLib.c ../src/lzma/LzmaLib.h \
- ../src/lzma/Types.h ../src/lzma/Alloc.h ../src/lzma/LzmaDec.h \
- ../src/lzma/LzmaEnc.h
-	@echo "compile(${CC}) - ../src/lzma/LzmaLib.c"
-	@${CC} -c ../src/lzma/LzmaLib.c -o objs/___src_lzma__LzmaLib.o ${FLAGS} ${PREFLAGS} ${CFLAGS}
-
-objs/___src_lzma__Alloc.o : \
- ../src/lzma/Alloc.c ../src/lzma/Alloc.h
-	@echo "compile(${CXX}) - ../src/lzma/Alloc.c"
-	@${CXX} -c ../src/lzma/Alloc.c -o objs/___src_lzma__Alloc.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_support__bootstrap.o : \
- ../src/support/bootstrap.cc ../src/support/debug.h \
- ../src/support/format.h ../src/support/../prelude.h \
- ../src/support/../prelude/pp.h ../src/support/../prelude/stdincl.h \
- ../src/support/../prelude/stdalias.h \
- ../src/support/../prelude/memberdetect.h \
- ../src/support/../prelude/util.h ../src/support/tuple.h \
- ../src/support/string.h ../src/support/bootstrap.h ../src/support/misc.h
-	@echo "compile(${CXX}) - ../src/support/bootstrap.cc"
-	@${CXX} -c ../src/support/bootstrap.cc -o objs/___src_support__bootstrap.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_support__debug.o : \
- ../src/support/debug.cc ../src/support/debug.h \
- ../src/support/format.h ../src/support/../prelude.h \
- ../src/support/../prelude/pp.h ../src/support/../prelude/stdincl.h \
- ../src/support/../prelude/stdalias.h \
- ../src/support/../prelude/memberdetect.h \
- ../src/support/../prelude/util.h ../src/support/tuple.h \
- ../src/support/string.h
-	@echo "compile(${CXX}) - ../src/support/debug.cc"
-	@${CXX} -c ../src/support/debug.cc -o objs/___src_support__debug.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
-objs/___src_support__app.o : \
- ../src/support/app.cc ../src/support.h ../src/support/debug.h \
- ../src/support/format.h ../src/support/../prelude.h \
- ../src/support/../prelude/pp.h ../src/support/../prelude/stdincl.h \
- ../src/support/../prelude/stdalias.h \
- ../src/support/../prelude/memberdetect.h \
- ../src/support/../prelude/util.h ../src/support/tuple.h \
- ../src/support/string.h ../src/support/inhchain.h ../src/support/misc.h \
- ../src/support/file-io.h ../src/support/bootstrap.h
-	@echo "compile(${CXX}) - ../src/support/app.cc"
-	@${CXX} -c ../src/support/app.cc -o objs/___src_support__app.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
-
 objs/___src_support__file-io.o : \
  ../src/support/file-io.cc ../src/support/file-io.h \
- ../src/support/../prelude/stdalias.h ../src/support/../prelude/stdincl.h \
- ../src/support/debug.h ../src/support/format.h \
- ../src/support/../prelude.h ../src/support/../prelude/pp.h \
- ../src/support/../prelude/memberdetect.h \
- ../src/support/../prelude/util.h ../src/support/tuple.h \
- ../src/support/string.h ../src/support/misc.h
+ ../src/support/../prelude.h
 	@echo "compile(${CXX}) - ../src/support/file-io.cc"
 	@${CXX} -c ../src/support/file-io.cc -o objs/___src_support__file-io.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_ygo-data__load.o : \
- ../src/ygo-data/load.cc ../src/ygo-data/load.h \
- ../src/ygo-data/static-card.h ../src/ygo-data/../prelude/stdalias.h \
- ../src/ygo-data/../prelude/stdincl.h ../src/ygo-data/../prelude.h \
- ../src/ygo-data/../prelude/pp.h \
- ../src/ygo-data/../prelude/memberdetect.h \
- ../src/ygo-data/../prelude/util.h ../src/ygo-data/../support.h \
- ../src/ygo-data/../support/debug.h ../src/ygo-data/../support/format.h \
- ../src/ygo-data/../support/tuple.h ../src/ygo-data/../support/string.h \
- ../src/ygo-data/../support/inhchain.h ../src/ygo-data/../support/misc.h \
- ../src/ygo-data/../support/file-io.h \
- ../src/ygo-data/../nlohmann-json/json.hpp
-	@echo "compile(${CXX}) - ../src/ygo-data/load.cc"
-	@${CXX} -c ../src/ygo-data/load.cc -o objs/___src_ygo-data__load.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_lzma__LzmaDec.o : \
+ ../src/3rd-part/lzma/LzmaDec.c ../src/3rd-part/lzma/LzmaDec.h \
+ ../src/3rd-part/lzma/Types.h
+	@echo "compile(${CXX}) - ../src/3rd-part/lzma/LzmaDec.c"
+	@${CXX} -c ../src/3rd-part/lzma/LzmaDec.c -o objs/___src_3rd-part_lzma__LzmaDec.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__ocgapi.o : \
- ../src/core/ocgapi.cpp ../src/core/ocgapi.h \
- ../src/core/common.h ../src/core/duel.h ../src/core/mtrandom.h \
- ../src/core/card.h ../src/core/effectset.h ../src/core/group.h \
- ../src/core/effect.h ../src/core/field.h ../src/core/interpreter.h
-	@echo "compile(${CXX}) - ../src/core/ocgapi.cpp"
-	@${CXX} -c ../src/core/ocgapi.cpp -o objs/___src_core__ocgapi.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_lzma__LzmaEnc.o : \
+ ../src/3rd-part/lzma/LzmaEnc.c ../src/3rd-part/lzma/LzmaEnc.h \
+ ../src/3rd-part/lzma/Types.h ../src/3rd-part/lzma/LzFind.h
+	@echo "compile(${CXX}) - ../src/3rd-part/lzma/LzmaEnc.c"
+	@${CXX} -c ../src/3rd-part/lzma/LzmaEnc.c -o objs/___src_3rd-part_lzma__LzmaEnc.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__group.o : \
- ../src/core/group.cpp ../src/core/group.h ../src/core/common.h \
- ../src/core/card.h ../src/core/effectset.h ../src/core/duel.h \
- ../src/core/mtrandom.h
-	@echo "compile(${CXX}) - ../src/core/group.cpp"
-	@${CXX} -c ../src/core/group.cpp -o objs/___src_core__group.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_lzma__LzFind.o : \
+ ../src/3rd-part/lzma/LzFind.c ../src/3rd-part/lzma/LzFind.h \
+ ../src/3rd-part/lzma/Types.h ../src/3rd-part/lzma/LzHash.h
+	@echo "compile(${CC}) - ../src/3rd-part/lzma/LzFind.c"
+	@${CC} -c ../src/3rd-part/lzma/LzFind.c -o objs/___src_3rd-part_lzma__LzFind.o ${FLAGS} ${PREFLAGS} ${CFLAGS}
 
-objs/___src_core__libduel.o : \
- ../src/core/libduel.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/field.h ../src/core/effectset.h \
- ../src/core/card.h ../src/core/effect.h ../src/core/group.h \
- ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/libduel.cpp"
-	@${CXX} -c ../src/core/libduel.cpp -o objs/___src_core__libduel.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_lzma__LzmaLib.o : \
+ ../src/3rd-part/lzma/LzmaLib.c ../src/3rd-part/lzma/LzmaLib.h \
+ ../src/3rd-part/lzma/Types.h ../src/3rd-part/lzma/Alloc.h \
+ ../src/3rd-part/lzma/LzmaDec.h ../src/3rd-part/lzma/LzmaEnc.h
+	@echo "compile(${CC}) - ../src/3rd-part/lzma/LzmaLib.c"
+	@${CC} -c ../src/3rd-part/lzma/LzmaLib.c -o objs/___src_3rd-part_lzma__LzmaLib.o ${FLAGS} ${PREFLAGS} ${CFLAGS}
 
-objs/___src_core__scriptlib.o : \
- ../src/core/scriptlib.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/duel.h \
- ../src/core/mtrandom.h
-	@echo "compile(${CXX}) - ../src/core/scriptlib.cpp"
-	@${CXX} -c ../src/core/scriptlib.cpp -o objs/___src_core__scriptlib.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_lzma__Alloc.o : \
+ ../src/3rd-part/lzma/Alloc.c ../src/3rd-part/lzma/Alloc.h
+	@echo "compile(${CXX}) - ../src/3rd-part/lzma/Alloc.c"
+	@${CXX} -c ../src/3rd-part/lzma/Alloc.c -o objs/___src_3rd-part_lzma__Alloc.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__effect.o : \
- ../src/core/effect.cpp ../src/core/effect.h \
- ../src/core/common.h ../src/core/field.h ../src/core/effectset.h \
- ../src/core/card.h ../src/core/duel.h ../src/core/mtrandom.h \
- ../src/core/group.h ../src/core/interpreter.h
-	@echo "compile(${CXX}) - ../src/core/effect.cpp"
-	@${CXX} -c ../src/core/effect.cpp -o objs/___src_core__effect.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__ocgapi.o : \
+ ../src/3rd-part/core/ocgapi.cpp ../src/3rd-part/core/ocgapi.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/interpreter.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/ocgapi.cpp"
+	@${CXX} -c ../src/3rd-part/core/ocgapi.cpp -o objs/___src_3rd-part_core__ocgapi.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__libdebug.o : \
- ../src/core/libdebug.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/field.h ../src/core/effectset.h \
- ../src/core/card.h ../src/core/effect.h ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/libdebug.cpp"
-	@${CXX} -c ../src/core/libdebug.cpp -o objs/___src_core__libdebug.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__group.o : \
+ ../src/3rd-part/core/group.cpp ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/group.cpp"
+	@${CXX} -c ../src/3rd-part/core/group.cpp -o objs/___src_3rd-part_core__group.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__duel.o : \
- ../src/core/duel.cpp ../src/core/duel.h ../src/core/common.h \
- ../src/core/mtrandom.h ../src/core/interpreter.h ../src/core/field.h \
- ../src/core/effectset.h ../src/core/card.h ../src/core/effect.h \
- ../src/core/group.h ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/duel.cpp"
-	@${CXX} -c ../src/core/duel.cpp -o objs/___src_core__duel.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__libduel.o : \
+ ../src/3rd-part/core/libduel.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/libduel.cpp"
+	@${CXX} -c ../src/3rd-part/core/libduel.cpp -o objs/___src_3rd-part_core__libduel.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__processor.o : \
- ../src/core/processor.cpp ../src/core/field.h \
- ../src/core/common.h ../src/core/effectset.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/card.h ../src/core/group.h \
- ../src/core/effect.h ../src/core/interpreter.h ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/processor.cpp"
-	@${CXX} -c ../src/core/processor.cpp -o objs/___src_core__processor.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__scriptlib.o : \
+ ../src/3rd-part/core/scriptlib.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/scriptlib.cpp"
+	@${CXX} -c ../src/3rd-part/core/scriptlib.cpp -o objs/___src_3rd-part_core__scriptlib.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__mem.o : \
- ../src/core/mem.cpp
-	@echo "compile(${CXX}) - ../src/core/mem.cpp"
-	@${CXX} -c ../src/core/mem.cpp -o objs/___src_core__mem.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__effect.o : \
+ ../src/3rd-part/core/effect.cpp ../src/3rd-part/core/effect.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/duel.h ../src/3rd-part/core/mtrandom.h \
+ ../src/3rd-part/core/group.h ../src/3rd-part/core/interpreter.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/effect.cpp"
+	@${CXX} -c ../src/3rd-part/core/effect.cpp -o objs/___src_3rd-part_core__effect.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__interpreter.o : \
- ../src/core/interpreter.cpp ../src/core/duel.h \
- ../src/core/common.h ../src/core/mtrandom.h ../src/core/group.h \
- ../src/core/card.h ../src/core/effectset.h ../src/core/effect.h \
- ../src/core/field.h ../src/core/scriptlib.h ../src/core/interpreter.h \
- ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/interpreter.cpp"
-	@${CXX} -c ../src/core/interpreter.cpp -o objs/___src_core__interpreter.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__libdebug.o : \
+ ../src/3rd-part/core/libdebug.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/libdebug.cpp"
+	@${CXX} -c ../src/3rd-part/core/libdebug.cpp -o objs/___src_3rd-part_core__libdebug.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__playerop.o : \
- ../src/core/playerop.cpp ../src/core/field.h \
- ../src/core/common.h ../src/core/effectset.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/effect.h ../src/core/card.h \
- ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/playerop.cpp"
-	@${CXX} -c ../src/core/playerop.cpp -o objs/___src_core__playerop.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__duel.o : \
+ ../src/3rd-part/core/duel.cpp ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/mtrandom.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/duel.cpp"
+	@${CXX} -c ../src/3rd-part/core/duel.cpp -o objs/___src_3rd-part_core__duel.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__libcard.o : \
- ../src/core/libcard.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/field.h ../src/core/effectset.h \
- ../src/core/card.h ../src/core/effect.h ../src/core/group.h
-	@echo "compile(${CXX}) - ../src/core/libcard.cpp"
-	@${CXX} -c ../src/core/libcard.cpp -o objs/___src_core__libcard.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__processor.o : \
+ ../src/3rd-part/core/processor.cpp \
+ ../src/3rd-part/core/field.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/group.h ../src/3rd-part/core/effect.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/processor.cpp"
+	@${CXX} -c ../src/3rd-part/core/processor.cpp -o objs/___src_3rd-part_core__processor.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__libgroup.o : \
- ../src/core/libgroup.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/group.h \
- ../src/core/card.h ../src/core/effectset.h ../src/core/effect.h \
- ../src/core/field.h ../src/core/duel.h ../src/core/mtrandom.h
-	@echo "compile(${CXX}) - ../src/core/libgroup.cpp"
-	@${CXX} -c ../src/core/libgroup.cpp -o objs/___src_core__libgroup.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__mem.o : \
+ ../src/3rd-part/core/mem.cpp
+	@echo "compile(${CXX}) - ../src/3rd-part/core/mem.cpp"
+	@${CXX} -c ../src/3rd-part/core/mem.cpp -o objs/___src_3rd-part_core__mem.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__operations.o : \
- ../src/core/operations.cpp ../src/core/field.h \
- ../src/core/common.h ../src/core/effectset.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/card.h ../src/core/effect.h \
- ../src/core/group.h ../src/core/interpreter.h
-	@echo "compile(${CXX}) - ../src/core/operations.cpp"
-	@${CXX} -c ../src/core/operations.cpp -o objs/___src_core__operations.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__interpreter.o : \
+ ../src/3rd-part/core/interpreter.cpp \
+ ../src/3rd-part/core/duel.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/card.h ../src/3rd-part/core/effectset.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/interpreter.h \
+ ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/interpreter.cpp"
+	@${CXX} -c ../src/3rd-part/core/interpreter.cpp -o objs/___src_3rd-part_core__interpreter.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__card.o : \
- ../src/core/card.cpp ../src/core/card.h ../src/core/common.h \
- ../src/core/effectset.h ../src/core/field.h ../src/core/effect.h \
- ../src/core/duel.h ../src/core/mtrandom.h ../src/core/group.h \
- ../src/core/interpreter.h ../src/core/ocgapi.h
-	@echo "compile(${CXX}) - ../src/core/card.cpp"
-	@${CXX} -c ../src/core/card.cpp -o objs/___src_core__card.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__playerop.o : \
+ ../src/3rd-part/core/playerop.cpp \
+ ../src/3rd-part/core/field.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/effect.h \
+ ../src/3rd-part/core/card.h ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/playerop.cpp"
+	@${CXX} -c ../src/3rd-part/core/playerop.cpp -o objs/___src_3rd-part_core__playerop.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__libeffect.o : \
- ../src/core/libeffect.cpp ../src/core/scriptlib.h \
- ../src/core/common.h ../src/core/interpreter.h ../src/core/duel.h \
- ../src/core/mtrandom.h ../src/core/field.h ../src/core/effectset.h \
- ../src/core/card.h ../src/core/effect.h ../src/core/group.h
-	@echo "compile(${CXX}) - ../src/core/libeffect.cpp"
-	@${CXX} -c ../src/core/libeffect.cpp -o objs/___src_core__libeffect.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__libcard.o : \
+ ../src/3rd-part/core/libcard.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/group.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/libcard.cpp"
+	@${CXX} -c ../src/3rd-part/core/libcard.cpp -o objs/___src_3rd-part_core__libcard.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
-objs/___src_core__field.o : \
- ../src/core/field.cpp ../src/core/field.h ../src/core/common.h \
- ../src/core/effectset.h ../src/core/duel.h ../src/core/mtrandom.h \
- ../src/core/card.h ../src/core/group.h ../src/core/effect.h \
- ../src/core/interpreter.h
-	@echo "compile(${CXX}) - ../src/core/field.cpp"
-	@${CXX} -c ../src/core/field.cpp -o objs/___src_core__field.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+objs/___src_3rd-part_core__libgroup.o : \
+ ../src/3rd-part/core/libgroup.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/card.h ../src/3rd-part/core/effectset.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/duel.h ../src/3rd-part/core/mtrandom.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/libgroup.cpp"
+	@${CXX} -c ../src/3rd-part/core/libgroup.cpp -o objs/___src_3rd-part_core__libgroup.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+
+objs/___src_3rd-part_core__operations.o : \
+ ../src/3rd-part/core/operations.cpp \
+ ../src/3rd-part/core/field.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/interpreter.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/operations.cpp"
+	@${CXX} -c ../src/3rd-part/core/operations.cpp -o objs/___src_3rd-part_core__operations.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+
+objs/___src_3rd-part_core__card.o : \
+ ../src/3rd-part/core/card.cpp ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/effectset.h \
+ ../src/3rd-part/core/field.h ../src/3rd-part/core/effect.h \
+ ../src/3rd-part/core/duel.h ../src/3rd-part/core/mtrandom.h \
+ ../src/3rd-part/core/group.h ../src/3rd-part/core/interpreter.h \
+ ../src/3rd-part/core/ocgapi.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/card.cpp"
+	@${CXX} -c ../src/3rd-part/core/card.cpp -o objs/___src_3rd-part_core__card.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+
+objs/___src_3rd-part_core__libeffect.o : \
+ ../src/3rd-part/core/libeffect.cpp \
+ ../src/3rd-part/core/scriptlib.h ../src/3rd-part/core/common.h \
+ ../src/3rd-part/core/interpreter.h ../src/3rd-part/core/duel.h \
+ ../src/3rd-part/core/mtrandom.h ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/effectset.h ../src/3rd-part/core/card.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/group.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/libeffect.cpp"
+	@${CXX} -c ../src/3rd-part/core/libeffect.cpp -o objs/___src_3rd-part_core__libeffect.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
+
+objs/___src_3rd-part_core__field.o : \
+ ../src/3rd-part/core/field.cpp ../src/3rd-part/core/field.h \
+ ../src/3rd-part/core/common.h ../src/3rd-part/core/effectset.h \
+ ../src/3rd-part/core/duel.h ../src/3rd-part/core/mtrandom.h \
+ ../src/3rd-part/core/card.h ../src/3rd-part/core/group.h \
+ ../src/3rd-part/core/effect.h ../src/3rd-part/core/interpreter.h
+	@echo "compile(${CXX}) - ../src/3rd-part/core/field.cpp"
+	@${CXX} -c ../src/3rd-part/core/field.cpp -o objs/___src_3rd-part_core__field.o ${FLAGS} ${PREFLAGS} ${CXXFLAGS}
 
 
 clean:
-	@[ -f a.out ] && rm -vf a.out || echo "Skip: a.out"
+	@[ -f replay ] && rm -vf replay || echo "Skip: replay"
 	@[ -f objs/___src__app.o ] && rm -vf objs/___src__app.o || echo "Skip: objs/___src__app.o"
 	@[ -f objs/___src_replay__replay-machine.o ] && rm -vf objs/___src_replay__replay-machine.o || echo "Skip: objs/___src_replay__replay-machine.o"
 	@[ -f objs/___src_replay__handle-message.o ] && rm -vf objs/___src_replay__handle-message.o || echo "Skip: objs/___src_replay__handle-message.o"
 	@[ -f objs/___src_replay__load-core-cards.o ] && rm -vf objs/___src_replay__load-core-cards.o || echo "Skip: objs/___src_replay__load-core-cards.o"
 	@[ -f objs/___src_replay__parse-meta.o ] && rm -vf objs/___src_replay__parse-meta.o || echo "Skip: objs/___src_replay__parse-meta.o"
-	@[ -f objs/___src_prelude__util.o ] && rm -vf objs/___src_prelude__util.o || echo "Skip: objs/___src_prelude__util.o"
 	@[ -f objs/___src_core-msg__unpack.o ] && rm -vf objs/___src_core-msg__unpack.o || echo "Skip: objs/___src_core-msg__unpack.o"
 	@[ -f objs/___src_core-msg__dump.o ] && rm -vf objs/___src_core-msg__dump.o || echo "Skip: objs/___src_core-msg__dump.o"
-	@[ -f objs/___src_lzma__LzmaDec.o ] && rm -vf objs/___src_lzma__LzmaDec.o || echo "Skip: objs/___src_lzma__LzmaDec.o"
-	@[ -f objs/___src_lzma__LzmaEnc.o ] && rm -vf objs/___src_lzma__LzmaEnc.o || echo "Skip: objs/___src_lzma__LzmaEnc.o"
-	@[ -f objs/___src_lzma__LzFind.o ] && rm -vf objs/___src_lzma__LzFind.o || echo "Skip: objs/___src_lzma__LzFind.o"
-	@[ -f objs/___src_lzma__LzmaLib.o ] && rm -vf objs/___src_lzma__LzmaLib.o || echo "Skip: objs/___src_lzma__LzmaLib.o"
-	@[ -f objs/___src_lzma__Alloc.o ] && rm -vf objs/___src_lzma__Alloc.o || echo "Skip: objs/___src_lzma__Alloc.o"
-	@[ -f objs/___src_support__bootstrap.o ] && rm -vf objs/___src_support__bootstrap.o || echo "Skip: objs/___src_support__bootstrap.o"
-	@[ -f objs/___src_support__debug.o ] && rm -vf objs/___src_support__debug.o || echo "Skip: objs/___src_support__debug.o"
-	@[ -f objs/___src_support__app.o ] && rm -vf objs/___src_support__app.o || echo "Skip: objs/___src_support__app.o"
 	@[ -f objs/___src_support__file-io.o ] && rm -vf objs/___src_support__file-io.o || echo "Skip: objs/___src_support__file-io.o"
-	@[ -f objs/___src_ygo-data__load.o ] && rm -vf objs/___src_ygo-data__load.o || echo "Skip: objs/___src_ygo-data__load.o"
-	@[ -f objs/___src_core__ocgapi.o ] && rm -vf objs/___src_core__ocgapi.o || echo "Skip: objs/___src_core__ocgapi.o"
-	@[ -f objs/___src_core__group.o ] && rm -vf objs/___src_core__group.o || echo "Skip: objs/___src_core__group.o"
-	@[ -f objs/___src_core__libduel.o ] && rm -vf objs/___src_core__libduel.o || echo "Skip: objs/___src_core__libduel.o"
-	@[ -f objs/___src_core__scriptlib.o ] && rm -vf objs/___src_core__scriptlib.o || echo "Skip: objs/___src_core__scriptlib.o"
-	@[ -f objs/___src_core__effect.o ] && rm -vf objs/___src_core__effect.o || echo "Skip: objs/___src_core__effect.o"
-	@[ -f objs/___src_core__libdebug.o ] && rm -vf objs/___src_core__libdebug.o || echo "Skip: objs/___src_core__libdebug.o"
-	@[ -f objs/___src_core__duel.o ] && rm -vf objs/___src_core__duel.o || echo "Skip: objs/___src_core__duel.o"
-	@[ -f objs/___src_core__processor.o ] && rm -vf objs/___src_core__processor.o || echo "Skip: objs/___src_core__processor.o"
-	@[ -f objs/___src_core__mem.o ] && rm -vf objs/___src_core__mem.o || echo "Skip: objs/___src_core__mem.o"
-	@[ -f objs/___src_core__interpreter.o ] && rm -vf objs/___src_core__interpreter.o || echo "Skip: objs/___src_core__interpreter.o"
-	@[ -f objs/___src_core__playerop.o ] && rm -vf objs/___src_core__playerop.o || echo "Skip: objs/___src_core__playerop.o"
-	@[ -f objs/___src_core__libcard.o ] && rm -vf objs/___src_core__libcard.o || echo "Skip: objs/___src_core__libcard.o"
-	@[ -f objs/___src_core__libgroup.o ] && rm -vf objs/___src_core__libgroup.o || echo "Skip: objs/___src_core__libgroup.o"
-	@[ -f objs/___src_core__operations.o ] && rm -vf objs/___src_core__operations.o || echo "Skip: objs/___src_core__operations.o"
-	@[ -f objs/___src_core__card.o ] && rm -vf objs/___src_core__card.o || echo "Skip: objs/___src_core__card.o"
-	@[ -f objs/___src_core__libeffect.o ] && rm -vf objs/___src_core__libeffect.o || echo "Skip: objs/___src_core__libeffect.o"
-	@[ -f objs/___src_core__field.o ] && rm -vf objs/___src_core__field.o || echo "Skip: objs/___src_core__field.o"
+	@[ -f objs/___src_3rd-part_lzma__LzmaDec.o ] && rm -vf objs/___src_3rd-part_lzma__LzmaDec.o || echo "Skip: objs/___src_3rd-part_lzma__LzmaDec.o"
+	@[ -f objs/___src_3rd-part_lzma__LzmaEnc.o ] && rm -vf objs/___src_3rd-part_lzma__LzmaEnc.o || echo "Skip: objs/___src_3rd-part_lzma__LzmaEnc.o"
+	@[ -f objs/___src_3rd-part_lzma__LzFind.o ] && rm -vf objs/___src_3rd-part_lzma__LzFind.o || echo "Skip: objs/___src_3rd-part_lzma__LzFind.o"
+	@[ -f objs/___src_3rd-part_lzma__LzmaLib.o ] && rm -vf objs/___src_3rd-part_lzma__LzmaLib.o || echo "Skip: objs/___src_3rd-part_lzma__LzmaLib.o"
+	@[ -f objs/___src_3rd-part_lzma__Alloc.o ] && rm -vf objs/___src_3rd-part_lzma__Alloc.o || echo "Skip: objs/___src_3rd-part_lzma__Alloc.o"
+	@[ -f objs/___src_3rd-part_core__ocgapi.o ] && rm -vf objs/___src_3rd-part_core__ocgapi.o || echo "Skip: objs/___src_3rd-part_core__ocgapi.o"
+	@[ -f objs/___src_3rd-part_core__group.o ] && rm -vf objs/___src_3rd-part_core__group.o || echo "Skip: objs/___src_3rd-part_core__group.o"
+	@[ -f objs/___src_3rd-part_core__libduel.o ] && rm -vf objs/___src_3rd-part_core__libduel.o || echo "Skip: objs/___src_3rd-part_core__libduel.o"
+	@[ -f objs/___src_3rd-part_core__scriptlib.o ] && rm -vf objs/___src_3rd-part_core__scriptlib.o || echo "Skip: objs/___src_3rd-part_core__scriptlib.o"
+	@[ -f objs/___src_3rd-part_core__effect.o ] && rm -vf objs/___src_3rd-part_core__effect.o || echo "Skip: objs/___src_3rd-part_core__effect.o"
+	@[ -f objs/___src_3rd-part_core__libdebug.o ] && rm -vf objs/___src_3rd-part_core__libdebug.o || echo "Skip: objs/___src_3rd-part_core__libdebug.o"
+	@[ -f objs/___src_3rd-part_core__duel.o ] && rm -vf objs/___src_3rd-part_core__duel.o || echo "Skip: objs/___src_3rd-part_core__duel.o"
+	@[ -f objs/___src_3rd-part_core__processor.o ] && rm -vf objs/___src_3rd-part_core__processor.o || echo "Skip: objs/___src_3rd-part_core__processor.o"
+	@[ -f objs/___src_3rd-part_core__mem.o ] && rm -vf objs/___src_3rd-part_core__mem.o || echo "Skip: objs/___src_3rd-part_core__mem.o"
+	@[ -f objs/___src_3rd-part_core__interpreter.o ] && rm -vf objs/___src_3rd-part_core__interpreter.o || echo "Skip: objs/___src_3rd-part_core__interpreter.o"
+	@[ -f objs/___src_3rd-part_core__playerop.o ] && rm -vf objs/___src_3rd-part_core__playerop.o || echo "Skip: objs/___src_3rd-part_core__playerop.o"
+	@[ -f objs/___src_3rd-part_core__libcard.o ] && rm -vf objs/___src_3rd-part_core__libcard.o || echo "Skip: objs/___src_3rd-part_core__libcard.o"
+	@[ -f objs/___src_3rd-part_core__libgroup.o ] && rm -vf objs/___src_3rd-part_core__libgroup.o || echo "Skip: objs/___src_3rd-part_core__libgroup.o"
+	@[ -f objs/___src_3rd-part_core__operations.o ] && rm -vf objs/___src_3rd-part_core__operations.o || echo "Skip: objs/___src_3rd-part_core__operations.o"
+	@[ -f objs/___src_3rd-part_core__card.o ] && rm -vf objs/___src_3rd-part_core__card.o || echo "Skip: objs/___src_3rd-part_core__card.o"
+	@[ -f objs/___src_3rd-part_core__libeffect.o ] && rm -vf objs/___src_3rd-part_core__libeffect.o || echo "Skip: objs/___src_3rd-part_core__libeffect.o"
+	@[ -f objs/___src_3rd-part_core__field.o ] && rm -vf objs/___src_3rd-part_core__field.o || echo "Skip: objs/___src_3rd-part_core__field.o"

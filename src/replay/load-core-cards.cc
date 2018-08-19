@@ -1,6 +1,5 @@
 #include "load-core-cards.h"
-#include "../nlohmann-json/json.hpp"
-#include "../support.h"
+#include "../3rd-part/nlohmann-json/json.hpp"
 
 #include <fstream>
 
@@ -42,7 +41,11 @@ load_core_cards(const Str &file_path)
 {
   std::ifstream file(file_path);
   if (!file) {
-    RiPanicF("Cannot open file %s", file_path);
+    std::fprintf( stderr
+                , "[ERROR] failed to open file %s\n"
+                , file_path.c_str());
+
+    throw std::runtime_error("failed to open file");
   }
 
   json_t j;

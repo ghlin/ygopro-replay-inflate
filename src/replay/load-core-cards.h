@@ -1,6 +1,6 @@
 #pragma once
 #include "../prelude.h"
-#include "../core/card.h"
+#include "../3rd-part/core/card.h"
 
 namespace ri::replay {
 

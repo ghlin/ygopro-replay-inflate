@@ -1,6 +1,5 @@
 #include "unpack.h"
-#include "../support.h"
-#include "../core/common.h"
+#include "../3rd-part/core/common.h"
 
 namespace ri::core_msg {
 
@@ -15,12 +14,15 @@ buffer_next( buffer_ptr *in
 {
   const auto span = sizeof (X);
   if (end < *in + span) {
-    RiPanicF( "end of buffer reached when parsing %s\n"
-              "                           in func %s\n"
-              "                           at line %d"
-            , label
-            , func
-            , line);
+    std::fprintf( stderr
+                , "[ERROR] end of buffer reached when parsing %s\n"
+                  "                                   in func %s\n"
+                  "                                   at line %d\n"
+                , label
+                , func
+                , line);
+
+    throw std::runtime_error("end of buffer reached");
   }
 
   auto x = *reinterpret_cast<const X *>(*in);
@@ -36,11 +38,12 @@ unpack_one(buffer_ptr *in, size_t len)
   const auto end = *in + len;
   auto msg_type = buffer_next<u8>(in, end, "(msg_type / u8)", __LINE__, __func__);
 #define HANDLE_UNKNOWN_MSG \
-  RiPanicF("Unknown message: %02x (%d)", msg_type, msg_type);
+  std::fprintf(stderr, "[ERROR] unknown message: %02x (%d)\n", msg_type, msg_type); \
+  throw std::runtime_error("unknown message");
 
 #include "core-msg-switch.gen.inl"
 
-  RiPanicF("unexpected end");
+  HANDLE_UNKNOWN_MSG
 }
 
 Seq<CoreMsg>

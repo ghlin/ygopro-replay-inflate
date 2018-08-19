@@ -1,24 +1,26 @@
-#include "support.h"
+#include "support/file-io.h"
 #include "replay/replay-machine.h"
+#include "core-msg/dump.h"
+#include "3rd-part/nlohmann-json/json.hpp"
 
-namespace ri {
-
-int main(attr_unused const Str_List &args)
+namespace ri::core_msg {
+void to_json(nlohmann::json &j, const core_msg::CoreMsg &msg)
 {
-  const auto replay_buffer = read_file("test.yrp");
+  j = nlohmann::json::parse(core_msg::dump_json(msg));
+}
+} // namespace ri::core_msg
 
-  replay::init_core_engine();
 
-  try {
-    replay::replay(replay_buffer);
-  } catch (const std::exception &e) {
-    RiLogE("e: %s", e.what());
-  } catch (...) {
-    RiLogE("ops.");
-  }
+int main(int argc, const char **argv)
+{
+  const auto replay_buffer = ri::read_file(argc > 1 ? argv[1] : "_LastReplay.yrp");
+
+  ri::replay::init_core_engine();
+
+  const auto messages = ri::replay::replay(replay_buffer);
+  nlohmann::json full_json = messages;
+  std::cout << full_json.dump(2);
 
   return 0;
 }
-
-} // namespace ri
 

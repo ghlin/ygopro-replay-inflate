@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../prelude/stdalias.h"
+#include "../prelude.h"
 
 namespace ri {
 

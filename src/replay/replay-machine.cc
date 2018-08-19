@@ -2,9 +2,8 @@
 #include "parse-meta.h"
 #include "handle-message.h"
 #include "load-core-cards.h"
-#include "../core/ocgapi.h"
-#include "../core/mtrandom.h"
-#include "../support.h"
+#include "../3rd-part/core/ocgapi.h"
+#include "../3rd-part/core/mtrandom.h"
 
 namespace ri::replay {
 
@@ -20,7 +19,11 @@ load_from_static_storage(uint32 code, card_data *d)
   if (found != default_core_card_storage.lookup.end()) {
     *d = found->second;
   } else {
-    RiPanicF("read data for code: %d failed", code);
+    std::fprintf( stderr
+                , "[ERROR] load_from_static_storage: unknown code %d\n"
+                , code);
+
+    throw std::runtime_error("load_from_static_storage: unknonw code");
   }
 
   return 0;
@@ -45,13 +48,12 @@ init_core_engine()
   default_core_card_storage = make_core_card_storage(load_core_cards("from-sqlite3.json"));
 }
 
-void
+Seq<core_msg::CoreMsg>
 replay(const Buffer &replay_content)
 {
   auto meta = parse_replay_meta(replay_content);
 
   auto engine = setup_core_engine(meta.header.seed);
-  RiLogI("setup engine using seed: %d", meta.header.seed);
 
   for (int i = 0; i != 2; ++i) {
     set_player_info( engine
@@ -69,38 +71,36 @@ replay(const Buffer &replay_content)
   }
 
   start_duel(engine, meta.config.opt);
-  RiLogI("duel started.");
 
   u8 msg_buffer[0x1000];
 
   Replayer replayer(meta, engine);
 
+  Seq<core_msg::CoreMsg> messages;
+
   while (true) {
     auto process_result = process(engine);
     auto len = process_result & 0xffff;
 
-    RiLogI("process returned: %d (0x%16x) / %d", process_result, process_result, len);
-
     if (len <= 0) {
-      RiLogI("process : nothing to do yet.");
       continue;
     }
 
     size_t msg_buff_len = get_message(engine, msg_buffer);
     if (msg_buff_len == 0) {
-      RiLogI("message buffer empty.");
       continue;
     }
 
-    auto should_continue = replayer.handle_message(msg_buffer, msg_buff_len);
+    auto should_continue = replayer.handle_message(&messages, msg_buffer, msg_buff_len);
     if (!should_continue) {
-      RiLogI("done playing.");
       break;
     }
   }
 
   // shutdown the engine
   end_duel(engine);
+
+  return messages;
 }
 
 } // namespace ri::replay

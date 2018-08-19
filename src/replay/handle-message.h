@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../prelude.h"
+#include "../core-msg/interface.h"
 #include "parse-meta.h"
 
 namespace ri::replay {
@@ -19,7 +20,7 @@ struct Replayer
   }
 
   bool
-  handle_message(buffer_ptr buffer, size_t len);
+  handle_message(Seq<core_msg::CoreMsg> *messages, buffer_ptr buffer, size_t len);
 };
 
 } // namespace ri::replay

@@ -1,6 +1,4 @@
 #include "file-io.h"
-#include "debug.h"
-#include "misc.h"
 #include <cstdio>
 
 namespace ri {
@@ -9,10 +7,9 @@ Buffer read_file(const Str &path)
 {
   std::FILE *file = std::fopen(path.c_str(), "rb");
   if (!file) {
-    RiPanicF("failed to open file[%s] for read", path);
+    std::fprintf(stderr, "[ERROR] failed to open file %s for read\n", path.c_str());
+    throw std::runtime_error("failed to open file");
   }
-
-  auto _ = defer_with (file) { std::fclose(file); };
 
   u8 read_buffer[1024];
   Buffer buffer;
@@ -26,6 +23,8 @@ Buffer read_file(const Str &path)
       break;
   }
 
+  std::fclose(file);
+
   return buffer;
 }
 
@@ -34,12 +33,13 @@ void write_file(const Str &path, const Buffer &buffer)
   std::FILE *file = std::fopen(path.c_str(), "wb");
 
   if (!file) {
-    RiPanicF("failed to open file[%s] for read", path);
+    std::fprintf(stderr, "[ERROR] failed to open file %s for read\n", path.c_str());
+    throw std::runtime_error("failed to open file");
   }
 
-  auto _ = defer_with (file) { std::fclose(file); };
-
   std::fwrite(&buffer.front(), 1, buffer.size(), file);
+  std::fclose(file);
 }
 
 } // namespace ri
+
