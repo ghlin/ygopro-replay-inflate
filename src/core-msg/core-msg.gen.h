@@ -1,18 +1,5 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
-struct CoreMsg_SHUFFLE_SET_CARD {
-  u8  location;
-  struct Card {
-    u8  controller;
-    u8  location;
-    u8  sequence;
-    u8  ignore;
-  };
-  std::vector<Card> cards1;
-  // already defined Card
-  std::vector<Card> cards2;
-};
-
 struct CoreMsg_RETRY {
 };
 
@@ -308,6 +295,19 @@ struct CoreMsg_REFRESH_DECK {
 
 struct CoreMsg_SWAP_GRAVE_DECK {
   u8  player;
+};
+
+struct CoreMsg_SHUFFLE_SET_CARD {
+  u8  location;
+  struct Card {
+    u8  controller;
+    u8  location;
+    u8  sequence;
+    u8  ignore;
+  };
+  std::vector<Card> cards1;
+  // already defined Card
+  std::vector<Card> cards2;
 };
 
 struct CoreMsg_SHUFFLE_HAND {
@@ -614,7 +614,7 @@ struct CoreMsg_TOSS_COIN {
   struct Result {
     u8  value;
   };
-  std::vector<Result> count;
+  std::vector<Result> tosses;
 };
 
 struct CoreMsg_TOSS_DICE {
@@ -622,7 +622,7 @@ struct CoreMsg_TOSS_DICE {
   struct Result {
     u8  value;
   };
-  std::vector<Result> count;
+  std::vector<Result> tosses;
 };
 
 struct CoreMsg_ROCK_PAPER_SCISSORS {
@@ -655,7 +655,7 @@ struct CoreMsg_ANNOUNCE_NUMBER {
   struct Announce {
     u32 value;
   };
-  std::vector<Announce> count;
+  std::vector<Announce> numbers;
 };
 
 struct CoreMsg_ANNOUNCE_CARD_FILTER {

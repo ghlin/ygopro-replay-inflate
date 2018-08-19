@@ -1,30 +1,5 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
-static inline std::string dump_CoreMsg_SHUFFLE_SET_CARD(const CoreMsg_SHUFFLE_SET_CARD &msg) {
-  (void)msg;
-  std::string dump = "[[MSG_SHUFFLE_SET_CARD]]\n";
-  dump += "\n  location :: u8  = " + format_value(msg.location);
-  dump += "\n  cards1   :: Card[" + std::to_string(msg.cards1.size()) + "] =";
-  for (const auto &it: msg.cards1) {
-    dump += "\n  {";
-    dump += "\n    controller :: u8  = " + format_value(it.controller);
-    dump += "\n    location   :: u8  = " + format_value(it.location);
-    dump += "\n    sequence   :: u8  = " + format_value(it.sequence);
-    dump += "\n    ignore     :: u8  = " + format_value(it.ignore);
-    dump += "\n  }";
-  }
-  dump += "\n  cards2   :: Card[" + std::to_string(msg.cards2.size()) + "] =";
-  for (const auto &it: msg.cards2) {
-    dump += "\n  {";
-    dump += "\n    controller :: u8  = " + format_value(it.controller);
-    dump += "\n    location   :: u8  = " + format_value(it.location);
-    dump += "\n    sequence   :: u8  = " + format_value(it.sequence);
-    dump += "\n    ignore     :: u8  = " + format_value(it.ignore);
-    dump += "\n  }";
-  }
-  return dump;
-}
-
 static inline std::string dump_CoreMsg_RETRY(const CoreMsg_RETRY &msg) {
   (void)msg;
   std::string dump = "[[MSG_RETRY]]\n";
@@ -464,6 +439,31 @@ static inline std::string dump_CoreMsg_SWAP_GRAVE_DECK(const CoreMsg_SWAP_GRAVE_
   (void)msg;
   std::string dump = "[[MSG_SWAP_GRAVE_DECK]]\n";
   dump += "\n  player :: u8  = " + format_value(msg.player);
+  return dump;
+}
+
+static inline std::string dump_CoreMsg_SHUFFLE_SET_CARD(const CoreMsg_SHUFFLE_SET_CARD &msg) {
+  (void)msg;
+  std::string dump = "[[MSG_SHUFFLE_SET_CARD]]\n";
+  dump += "\n  location :: u8  = " + format_value(msg.location);
+  dump += "\n  cards1   :: Card[" + std::to_string(msg.cards1.size()) + "] =";
+  for (const auto &it: msg.cards1) {
+    dump += "\n  {";
+    dump += "\n    controller :: u8  = " + format_value(it.controller);
+    dump += "\n    location   :: u8  = " + format_value(it.location);
+    dump += "\n    sequence   :: u8  = " + format_value(it.sequence);
+    dump += "\n    ignore     :: u8  = " + format_value(it.ignore);
+    dump += "\n  }";
+  }
+  dump += "\n  cards2   :: Card[" + std::to_string(msg.cards2.size()) + "] =";
+  for (const auto &it: msg.cards2) {
+    dump += "\n  {";
+    dump += "\n    controller :: u8  = " + format_value(it.controller);
+    dump += "\n    location   :: u8  = " + format_value(it.location);
+    dump += "\n    sequence   :: u8  = " + format_value(it.sequence);
+    dump += "\n    ignore     :: u8  = " + format_value(it.ignore);
+    dump += "\n  }";
+  }
   return dump;
 }
 
@@ -912,8 +912,8 @@ static inline std::string dump_CoreMsg_TOSS_COIN(const CoreMsg_TOSS_COIN &msg) {
   (void)msg;
   std::string dump = "[[MSG_TOSS_COIN]]\n";
   dump += "\n  player :: u8  = " + format_value(msg.player);
-  dump += "\n  count  :: Result[" + std::to_string(msg.count.size()) + "] =";
-  for (const auto &it: msg.count) {
+  dump += "\n  tosses :: Result[" + std::to_string(msg.tosses.size()) + "] =";
+  for (const auto &it: msg.tosses) {
     dump += "\n  {";
     dump += "\n    value :: u8  = " + format_value(it.value);
     dump += "\n  }";
@@ -925,8 +925,8 @@ static inline std::string dump_CoreMsg_TOSS_DICE(const CoreMsg_TOSS_DICE &msg) {
   (void)msg;
   std::string dump = "[[MSG_TOSS_DICE]]\n";
   dump += "\n  player :: u8  = " + format_value(msg.player);
-  dump += "\n  count  :: Result[" + std::to_string(msg.count.size()) + "] =";
-  for (const auto &it: msg.count) {
+  dump += "\n  tosses :: Result[" + std::to_string(msg.tosses.size()) + "] =";
+  for (const auto &it: msg.tosses) {
     dump += "\n  {";
     dump += "\n    value :: u8  = " + format_value(it.value);
     dump += "\n  }";
@@ -977,9 +977,9 @@ static inline std::string dump_CoreMsg_ANNOUNCE_CARD(const CoreMsg_ANNOUNCE_CARD
 static inline std::string dump_CoreMsg_ANNOUNCE_NUMBER(const CoreMsg_ANNOUNCE_NUMBER &msg) {
   (void)msg;
   std::string dump = "[[MSG_ANNOUNCE_NUMBER]]\n";
-  dump += "\n  player :: u8  = " + format_value(msg.player);
-  dump += "\n  count  :: Announce[" + std::to_string(msg.count.size()) + "] =";
-  for (const auto &it: msg.count) {
+  dump += "\n  player  :: u8  = " + format_value(msg.player);
+  dump += "\n  numbers :: Announce[" + std::to_string(msg.numbers.size()) + "] =";
+  for (const auto &it: msg.numbers) {
     dump += "\n  {";
     dump += "\n    value :: u32 = " + format_value(it.value);
     dump += "\n  }";

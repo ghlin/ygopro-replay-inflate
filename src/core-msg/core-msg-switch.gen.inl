@@ -1,9 +1,6 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
 switch (msg_type) {
-  case MSG_SHUFFLE_SET_CARD: {
-    return { unpack_CoreMsg_SHUFFLE_SET_CARD(in, end) };
-  }
   case MSG_RETRY: {
     return { unpack_CoreMsg_RETRY(in, end) };
   }
@@ -84,6 +81,9 @@ switch (msg_type) {
   }
   case MSG_SWAP_GRAVE_DECK: {
     return { unpack_CoreMsg_SWAP_GRAVE_DECK(in, end) };
+  }
+  case MSG_SHUFFLE_SET_CARD: {
+    return { unpack_CoreMsg_SHUFFLE_SET_CARD(in, end) };
   }
   case MSG_SHUFFLE_HAND: {
     return { unpack_CoreMsg_SHUFFLE_HAND(in, end) };

@@ -1,33 +1,5 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
-CoreMsg_SHUFFLE_SET_CARD
-unpack_CoreMsg_SHUFFLE_SET_CARD(buffer_ptr *in, buffer_ptr end)
-{
-  (void)in; (void)end;
-  CoreMsg_SHUFFLE_SET_CARD out;
-  out.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
-  const auto count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
-  for (unsigned i = 0; i != count; ++i) {
-    using unpacking_type = CoreMsg_SHUFFLE_SET_CARD::Card;
-    unpacking_type unpacking;
-    unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
-    unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
-    unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
-    unpacking.ignore = buffer_next<u8>(in, end, "(ignore / u8)", __LINE__, __func__);
-    out.cards1.emplace_back(std::move(unpacking));
-  }
-  for (unsigned i = 0; i != count; ++i) {
-    using unpacking_type = CoreMsg_SHUFFLE_SET_CARD::Card;
-    unpacking_type unpacking;
-    unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
-    unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
-    unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
-    unpacking.ignore = buffer_next<u8>(in, end, "(ignore / u8)", __LINE__, __func__);
-    out.cards2.emplace_back(std::move(unpacking));
-  }
-  return out;
-}
-
 CoreMsg_RETRY
 unpack_CoreMsg_RETRY(buffer_ptr *in, buffer_ptr end)
 {
@@ -88,8 +60,7 @@ unpack_CoreMsg_SELECT_BATTLECMD(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto candidates1 = buffer_next<u8>(in, end, "(candidates1 / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates1; ++i) {
-    using unpacking_type = CoreMsg_SELECT_BATTLECMD::Candidate1;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_BATTLECMD::Candidate1 unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -99,8 +70,7 @@ unpack_CoreMsg_SELECT_BATTLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto candidates2 = buffer_next<u8>(in, end, "(candidates2 / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates2; ++i) {
-    using unpacking_type = CoreMsg_SELECT_BATTLECMD::Candidate2;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_BATTLECMD::Candidate2 unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -121,8 +91,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto summon_candidates = buffer_next<u8>(in, end, "(summon_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != summon_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -131,8 +100,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto spsummon_candidates = buffer_next<u8>(in, end, "(spsummon_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != spsummon_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -141,8 +109,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto reposition_candidates = buffer_next<u8>(in, end, "(reposition_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != reposition_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -151,8 +118,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto mset_candidates = buffer_next<u8>(in, end, "(mset_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != mset_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -161,8 +127,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto sset_candidates = buffer_next<u8>(in, end, "(sset_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != sset_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -171,8 +136,7 @@ unpack_CoreMsg_SELECT_IDLECMD(buffer_ptr *in, buffer_ptr end)
   }
   const auto active_candidates = buffer_next<u8>(in, end, "(active_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != active_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_IDLECMD::ActiveCandidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_IDLECMD::ActiveCandidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -219,8 +183,7 @@ unpack_CoreMsg_SELECT_OPTION(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_OPTION::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_OPTION::Candidate unpacking;
     unpacking.option_id = buffer_next<u8>(in, end, "(option_id / u8)", __LINE__, __func__);
     out.candidates.emplace_back(std::move(unpacking));
   }
@@ -238,8 +201,7 @@ unpack_CoreMsg_SELECT_CARD(buffer_ptr *in, buffer_ptr end)
   out.select_max = buffer_next<u8>(in, end, "(select_max / u8)", __LINE__, __func__);
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_CARD::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_CARD::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -262,8 +224,7 @@ unpack_CoreMsg_SELECT_UNSELECT_CARD(buffer_ptr *in, buffer_ptr end)
   out.select_max = buffer_next<u8>(in, end, "(select_max / u8)", __LINE__, __func__);
   const auto candidates1 = buffer_next<u8>(in, end, "(candidates1 / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates1; ++i) {
-    using unpacking_type = CoreMsg_SELECT_UNSELECT_CARD::Candidate1;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_UNSELECT_CARD::Candidate1 unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -273,8 +234,7 @@ unpack_CoreMsg_SELECT_UNSELECT_CARD(buffer_ptr *in, buffer_ptr end)
   }
   const auto candidates2 = buffer_next<u8>(in, end, "(candidates2 / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates2; ++i) {
-    using unpacking_type = CoreMsg_SELECT_UNSELECT_CARD::Candidate2;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_UNSELECT_CARD::Candidate2 unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -297,8 +257,7 @@ unpack_CoreMsg_SELECT_CHAIN(buffer_ptr *in, buffer_ptr end)
   out.hint0 = buffer_next<u32>(in, end, "(hint0 / u32)", __LINE__, __func__);
   out.hint1 = buffer_next<u32>(in, end, "(hint1 / u32)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_CHAIN::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_CHAIN::Candidate unpacking;
     unpacking.flag = buffer_next<u8>(in, end, "(flag / u8)", __LINE__, __func__);
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
@@ -355,8 +314,7 @@ unpack_CoreMsg_SELECT_TRIBUTE(buffer_ptr *in, buffer_ptr end)
   out.select_max = buffer_next<u8>(in, end, "(select_max / u8)", __LINE__, __func__);
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_TRIBUTE::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_TRIBUTE::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -377,8 +335,7 @@ unpack_CoreMsg_SELECT_COUNTER(buffer_ptr *in, buffer_ptr end)
   out.select_counter_count = buffer_next<u16>(in, end, "(select_counter_count / u16)", __LINE__, __func__);
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_COUNTER::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_COUNTER::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -401,8 +358,7 @@ unpack_CoreMsg_SELECT_SUM(buffer_ptr *in, buffer_ptr end)
   out.select_max = buffer_next<u8>(in, end, "(select_max / u8)", __LINE__, __func__);
   const auto must_select_candidates = buffer_next<u8>(in, end, "(must_select_candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != must_select_candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_SUM::MustSelect;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_SUM::MustSelect unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -412,8 +368,7 @@ unpack_CoreMsg_SELECT_SUM(buffer_ptr *in, buffer_ptr end)
   }
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
-    using unpacking_type = CoreMsg_SELECT_SUM::Candidate;
-    unpacking_type unpacking;
+    CoreMsg_SELECT_SUM::Candidate unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -432,8 +387,7 @@ unpack_CoreMsg_SORT_CARD(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_SORT_CARD::Card;
-    unpacking_type unpacking;
+    CoreMsg_SORT_CARD::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -451,8 +405,7 @@ unpack_CoreMsg_SORT_CHAIN(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_SORT_CHAIN::Card;
-    unpacking_type unpacking;
+    CoreMsg_SORT_CHAIN::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -470,8 +423,7 @@ unpack_CoreMsg_CONFIRM_DECKTOP(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_CONFIRM_DECKTOP::Card;
-    unpacking_type unpacking;
+    CoreMsg_CONFIRM_DECKTOP::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -489,8 +441,7 @@ unpack_CoreMsg_CONFIRM_EXTRATOP(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_CONFIRM_EXTRATOP::Card;
-    unpacking_type unpacking;
+    CoreMsg_CONFIRM_EXTRATOP::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -508,8 +459,7 @@ unpack_CoreMsg_CONFIRM_CARDS(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_CONFIRM_CARDS::Card;
-    unpacking_type unpacking;
+    CoreMsg_CONFIRM_CARDS::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
@@ -546,6 +496,32 @@ unpack_CoreMsg_SWAP_GRAVE_DECK(buffer_ptr *in, buffer_ptr end)
   return out;
 }
 
+CoreMsg_SHUFFLE_SET_CARD
+unpack_CoreMsg_SHUFFLE_SET_CARD(buffer_ptr *in, buffer_ptr end)
+{
+  (void)in; (void)end;
+  CoreMsg_SHUFFLE_SET_CARD out;
+  out.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
+  const auto count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != count; ++i) {
+    CoreMsg_SHUFFLE_SET_CARD::Card unpacking;
+    unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
+    unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
+    unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
+    unpacking.ignore = buffer_next<u8>(in, end, "(ignore / u8)", __LINE__, __func__);
+    out.cards1.emplace_back(std::move(unpacking));
+  }
+  for (unsigned i = 0; i != count; ++i) {
+    CoreMsg_SHUFFLE_SET_CARD::Card unpacking;
+    unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
+    unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
+    unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
+    unpacking.ignore = buffer_next<u8>(in, end, "(ignore / u8)", __LINE__, __func__);
+    out.cards2.emplace_back(std::move(unpacking));
+  }
+  return out;
+}
+
 CoreMsg_SHUFFLE_HAND
 unpack_CoreMsg_SHUFFLE_HAND(buffer_ptr *in, buffer_ptr end)
 {
@@ -554,8 +530,7 @@ unpack_CoreMsg_SHUFFLE_HAND(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_SHUFFLE_HAND::Card;
-    unpacking_type unpacking;
+    CoreMsg_SHUFFLE_HAND::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     out.cards.emplace_back(std::move(unpacking));
   }
@@ -570,8 +545,7 @@ unpack_CoreMsg_SHUFFLE_EXTRA(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_SHUFFLE_EXTRA::Card;
-    unpacking_type unpacking;
+    CoreMsg_SHUFFLE_EXTRA::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     out.cards.emplace_back(std::move(unpacking));
   }
@@ -837,8 +811,7 @@ unpack_CoreMsg_RANDOM_SELECTED(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_RANDOM_SELECTED::Card;
-    unpacking_type unpacking;
+    CoreMsg_RANDOM_SELECTED::Card unpacking;
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
     unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
@@ -855,8 +828,7 @@ unpack_CoreMsg_BECOME_TARGET(buffer_ptr *in, buffer_ptr end)
   CoreMsg_BECOME_TARGET out;
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_BECOME_TARGET::Card;
-    unpacking_type unpacking;
+    CoreMsg_BECOME_TARGET::Card unpacking;
     unpacking.controller = buffer_next<u8>(in, end, "(controller / u8)", __LINE__, __func__);
     unpacking.location = buffer_next<u8>(in, end, "(location / u8)", __LINE__, __func__);
     unpacking.sequence = buffer_next<u8>(in, end, "(sequence / u8)", __LINE__, __func__);
@@ -874,8 +846,7 @@ unpack_CoreMsg_DRAW(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto cards = buffer_next<u8>(in, end, "(cards / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != cards; ++i) {
-    using unpacking_type = CoreMsg_DRAW::Card;
-    unpacking_type unpacking;
+    CoreMsg_DRAW::Card unpacking;
     unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
     out.cards.emplace_back(std::move(unpacking));
   }
@@ -1086,12 +1057,11 @@ unpack_CoreMsg_TOSS_COIN(buffer_ptr *in, buffer_ptr end)
   (void)in; (void)end;
   CoreMsg_TOSS_COIN out;
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
-  const auto count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
-  for (unsigned i = 0; i != count; ++i) {
-    using unpacking_type = CoreMsg_TOSS_COIN::Result;
-    unpacking_type unpacking;
+  const auto tosses = buffer_next<u8>(in, end, "(tosses / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != tosses; ++i) {
+    CoreMsg_TOSS_COIN::Result unpacking;
     unpacking.value = buffer_next<u8>(in, end, "(value / u8)", __LINE__, __func__);
-    out.count.emplace_back(std::move(unpacking));
+    out.tosses.emplace_back(std::move(unpacking));
   }
   return out;
 }
@@ -1102,12 +1072,11 @@ unpack_CoreMsg_TOSS_DICE(buffer_ptr *in, buffer_ptr end)
   (void)in; (void)end;
   CoreMsg_TOSS_DICE out;
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
-  const auto count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
-  for (unsigned i = 0; i != count; ++i) {
-    using unpacking_type = CoreMsg_TOSS_DICE::Result;
-    unpacking_type unpacking;
+  const auto tosses = buffer_next<u8>(in, end, "(tosses / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != tosses; ++i) {
+    CoreMsg_TOSS_DICE::Result unpacking;
     unpacking.value = buffer_next<u8>(in, end, "(value / u8)", __LINE__, __func__);
-    out.count.emplace_back(std::move(unpacking));
+    out.tosses.emplace_back(std::move(unpacking));
   }
   return out;
 }
@@ -1168,12 +1137,11 @@ unpack_CoreMsg_ANNOUNCE_NUMBER(buffer_ptr *in, buffer_ptr end)
   (void)in; (void)end;
   CoreMsg_ANNOUNCE_NUMBER out;
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
-  const auto count = buffer_next<u8>(in, end, "(count / u8)", __LINE__, __func__);
-  for (unsigned i = 0; i != count; ++i) {
-    using unpacking_type = CoreMsg_ANNOUNCE_NUMBER::Announce;
-    unpacking_type unpacking;
+  const auto numbers = buffer_next<u8>(in, end, "(numbers / u8)", __LINE__, __func__);
+  for (unsigned i = 0; i != numbers; ++i) {
+    CoreMsg_ANNOUNCE_NUMBER::Announce unpacking;
     unpacking.value = buffer_next<u32>(in, end, "(value / u32)", __LINE__, __func__);
-    out.count.emplace_back(std::move(unpacking));
+    out.numbers.emplace_back(std::move(unpacking));
   }
   return out;
 }
@@ -1186,8 +1154,7 @@ unpack_CoreMsg_ANNOUNCE_CARD_FILTER(buffer_ptr *in, buffer_ptr end)
   out.player = buffer_next<u8>(in, end, "(player / u8)", __LINE__, __func__);
   const auto filters = buffer_next<u8>(in, end, "(filters / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != filters; ++i) {
-    using unpacking_type = CoreMsg_ANNOUNCE_CARD_FILTER::Filter;
-    unpacking_type unpacking;
+    CoreMsg_ANNOUNCE_CARD_FILTER::Filter unpacking;
     unpacking.opcode = buffer_next<u32>(in, end, "(opcode / u32)", __LINE__, __func__);
     out.filters.emplace_back(std::move(unpacking));
   }
@@ -1239,10 +1206,7 @@ unpack_CoreMsg_RELOAD_FIELD(buffer_ptr *in, buffer_ptr end)
     for (unsigned i = 0; i != 7; ++i) {
       const auto value = buffer_next<u8>(in, end, "(value / u8)", __LINE__, __func__);
       if (value) {
-        using unpacking_data_type = CoreMsg_RELOAD_FIELD::PlayersField::MCard::MValue;
-        using unpacking_type = std::optional<unpacking_data_type>;
-        unpacking_type unpacking;
-        unpacking = unpacking_data_type { };
+        std::optional<CoreMsg_RELOAD_FIELD::PlayersField::MCard::MValue> unpacking = CoreMsg_RELOAD_FIELD::PlayersField::MCard::MValue { };
         (*unpacking).position = buffer_next<u8>(in, end, "(position / u8)", __LINE__, __func__);
         (*unpacking).xyz_count = buffer_next<u8>(in, end, "(xyz_count / u8)", __LINE__, __func__);
         out.players[i].mzone_cards[i].value = std::move(unpacking);
@@ -1251,10 +1215,7 @@ unpack_CoreMsg_RELOAD_FIELD(buffer_ptr *in, buffer_ptr end)
     for (unsigned i = 0; i != 8; ++i) {
       const auto value = buffer_next<u8>(in, end, "(value / u8)", __LINE__, __func__);
       if (value) {
-        using unpacking_data_type = CoreMsg_RELOAD_FIELD::PlayersField::Card::Value;
-        using unpacking_type = std::optional<unpacking_data_type>;
-        unpacking_type unpacking;
-        unpacking = unpacking_data_type { };
+        std::optional<CoreMsg_RELOAD_FIELD::PlayersField::Card::Value> unpacking = CoreMsg_RELOAD_FIELD::PlayersField::Card::Value { };
         (*unpacking).position = buffer_next<u8>(in, end, "(position / u8)", __LINE__, __func__);
         out.players[i].cards[i].value = std::move(unpacking);
       }
@@ -1267,8 +1228,7 @@ unpack_CoreMsg_RELOAD_FIELD(buffer_ptr *in, buffer_ptr end)
     out.players[i].extra_pendu_count = buffer_next<u8>(in, end, "(extra_pendu_count / u8)", __LINE__, __func__);
     const auto chains = buffer_next<u8>(in, end, "(chains / u8)", __LINE__, __func__);
     for (unsigned i = 0; i != chains; ++i) {
-      using unpacking_type = CoreMsg_RELOAD_FIELD::PlayersField::Chain;
-      unpacking_type unpacking;
+      CoreMsg_RELOAD_FIELD::PlayersField::Chain unpacking;
       unpacking.code = buffer_next<u32>(in, end, "(code / u32)", __LINE__, __func__);
       unpacking.previous_controller = buffer_next<u8>(in, end, "(previous_controller / u8)", __LINE__, __func__);
       unpacking.previous_location = buffer_next<u8>(in, end, "(previous_location / u8)", __LINE__, __func__);

@@ -1,7 +1,6 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
 struct CoreMsgDumpVisitor {
-  std::string operator ()(const CoreMsg_SHUFFLE_SET_CARD &msg) const { return dump_CoreMsg_SHUFFLE_SET_CARD(msg); }
   std::string operator ()(const CoreMsg_RETRY &msg) const { return dump_CoreMsg_RETRY(msg); }
   std::string operator ()(const CoreMsg_HINT &msg) const { return dump_CoreMsg_HINT(msg); }
   std::string operator ()(const CoreMsg_WIN &msg) const { return dump_CoreMsg_WIN(msg); }
@@ -29,6 +28,7 @@ struct CoreMsgDumpVisitor {
   std::string operator ()(const CoreMsg_SHUFFLE_DECK &msg) const { return dump_CoreMsg_SHUFFLE_DECK(msg); }
   std::string operator ()(const CoreMsg_REFRESH_DECK &msg) const { return dump_CoreMsg_REFRESH_DECK(msg); }
   std::string operator ()(const CoreMsg_SWAP_GRAVE_DECK &msg) const { return dump_CoreMsg_SWAP_GRAVE_DECK(msg); }
+  std::string operator ()(const CoreMsg_SHUFFLE_SET_CARD &msg) const { return dump_CoreMsg_SHUFFLE_SET_CARD(msg); }
   std::string operator ()(const CoreMsg_SHUFFLE_HAND &msg) const { return dump_CoreMsg_SHUFFLE_HAND(msg); }
   std::string operator ()(const CoreMsg_SHUFFLE_EXTRA &msg) const { return dump_CoreMsg_SHUFFLE_EXTRA(msg); }
   std::string operator ()(const CoreMsg_REVERSE_DECK &msg) const { return dump_CoreMsg_REVERSE_DECK(msg); }

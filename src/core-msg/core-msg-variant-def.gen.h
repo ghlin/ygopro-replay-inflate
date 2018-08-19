@@ -1,8 +1,7 @@
 /* !!! Generated code, DO NOT EDIT !!! */
 
 using CoreMsg = std::variant
-  < CoreMsg_SHUFFLE_SET_CARD
-  , CoreMsg_RETRY
+  < CoreMsg_RETRY
   , CoreMsg_HINT
   , CoreMsg_WIN
   , CoreMsg_WAITING
@@ -29,6 +28,7 @@ using CoreMsg = std::variant
   , CoreMsg_SHUFFLE_DECK
   , CoreMsg_REFRESH_DECK
   , CoreMsg_SWAP_GRAVE_DECK
+  , CoreMsg_SHUFFLE_SET_CARD
   , CoreMsg_SHUFFLE_HAND
   , CoreMsg_SHUFFLE_EXTRA
   , CoreMsg_REVERSE_DECK

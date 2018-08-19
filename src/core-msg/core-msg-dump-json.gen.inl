@@ -2,52 +2,6 @@
 
 
 std::string
-dump_json_CoreMsg_SHUFFLE_SET_CARD(const CoreMsg_SHUFFLE_SET_CARD &msg) {
-  (void)msg;
-  std::string dump;
-  dump += "{ \"type\": \"MSG_SHUFFLE_SET_CARD\", \"data\":";
-  dump += "{";
-  dump += "\"location\": " + std::to_string(msg.location);
-  dump += ",";
-  dump += "\"cards1\": [";
-  for (auto iter = msg.cards1.begin(); iter != msg.cards1.end(); ++iter) {
-    if (iter != msg.cards1.begin()) dump += ",";
-    const auto dumping = *iter;
-    dump += "{";
-    dump += "\"controller\": " + std::to_string(dumping.controller);
-    dump += ",";
-    dump += "\"location\": " + std::to_string(dumping.location);
-    dump += ",";
-    dump += "\"sequence\": " + std::to_string(dumping.sequence);
-    dump += ",";
-    dump += "\"ignore\": " + std::to_string(dumping.ignore);
-    dump += "}";
-  }
-  dump += "]";
-  dump += ",";
-  dump += "\"cards2\": [";
-  for (auto iter = msg.cards2.begin(); iter != msg.cards2.end(); ++iter) {
-    if (iter != msg.cards2.begin()) dump += ",";
-    const auto dumping = *iter;
-    dump += "{";
-    dump += "\"controller\": " + std::to_string(dumping.controller);
-    dump += ",";
-    dump += "\"location\": " + std::to_string(dumping.location);
-    dump += ",";
-    dump += "\"sequence\": " + std::to_string(dumping.sequence);
-    dump += ",";
-    dump += "\"ignore\": " + std::to_string(dumping.ignore);
-    dump += "}";
-  }
-  dump += "]";
-  dump += "}";
-
-  dump += "}";
-  return dump;
-}
-
-
-std::string
 dump_json_CoreMsg_RETRY(const CoreMsg_RETRY &msg) {
   (void)msg;
   std::string dump;
@@ -882,6 +836,52 @@ dump_json_CoreMsg_SWAP_GRAVE_DECK(const CoreMsg_SWAP_GRAVE_DECK &msg) {
   dump += "{ \"type\": \"MSG_SWAP_GRAVE_DECK\", \"data\":";
   dump += "{";
   dump += "\"player\": " + std::to_string(msg.player);
+  dump += "}";
+
+  dump += "}";
+  return dump;
+}
+
+
+std::string
+dump_json_CoreMsg_SHUFFLE_SET_CARD(const CoreMsg_SHUFFLE_SET_CARD &msg) {
+  (void)msg;
+  std::string dump;
+  dump += "{ \"type\": \"MSG_SHUFFLE_SET_CARD\", \"data\":";
+  dump += "{";
+  dump += "\"location\": " + std::to_string(msg.location);
+  dump += ",";
+  dump += "\"cards1\": [";
+  for (auto iter = msg.cards1.begin(); iter != msg.cards1.end(); ++iter) {
+    if (iter != msg.cards1.begin()) dump += ",";
+    const auto dumping = *iter;
+    dump += "{";
+    dump += "\"controller\": " + std::to_string(dumping.controller);
+    dump += ",";
+    dump += "\"location\": " + std::to_string(dumping.location);
+    dump += ",";
+    dump += "\"sequence\": " + std::to_string(dumping.sequence);
+    dump += ",";
+    dump += "\"ignore\": " + std::to_string(dumping.ignore);
+    dump += "}";
+  }
+  dump += "]";
+  dump += ",";
+  dump += "\"cards2\": [";
+  for (auto iter = msg.cards2.begin(); iter != msg.cards2.end(); ++iter) {
+    if (iter != msg.cards2.begin()) dump += ",";
+    const auto dumping = *iter;
+    dump += "{";
+    dump += "\"controller\": " + std::to_string(dumping.controller);
+    dump += ",";
+    dump += "\"location\": " + std::to_string(dumping.location);
+    dump += ",";
+    dump += "\"sequence\": " + std::to_string(dumping.sequence);
+    dump += ",";
+    dump += "\"ignore\": " + std::to_string(dumping.ignore);
+    dump += "}";
+  }
+  dump += "]";
   dump += "}";
 
   dump += "}";
@@ -1778,9 +1778,9 @@ dump_json_CoreMsg_TOSS_COIN(const CoreMsg_TOSS_COIN &msg) {
   dump += "{";
   dump += "\"player\": " + std::to_string(msg.player);
   dump += ",";
-  dump += "\"count\": [";
-  for (auto iter = msg.count.begin(); iter != msg.count.end(); ++iter) {
-    if (iter != msg.count.begin()) dump += ",";
+  dump += "\"tosses\": [";
+  for (auto iter = msg.tosses.begin(); iter != msg.tosses.end(); ++iter) {
+    if (iter != msg.tosses.begin()) dump += ",";
     const auto dumping = *iter;
     dump += "{";
     dump += "\"value\": " + std::to_string(dumping.value);
@@ -1802,9 +1802,9 @@ dump_json_CoreMsg_TOSS_DICE(const CoreMsg_TOSS_DICE &msg) {
   dump += "{";
   dump += "\"player\": " + std::to_string(msg.player);
   dump += ",";
-  dump += "\"count\": [";
-  for (auto iter = msg.count.begin(); iter != msg.count.end(); ++iter) {
-    if (iter != msg.count.begin()) dump += ",";
+  dump += "\"tosses\": [";
+  for (auto iter = msg.tosses.begin(); iter != msg.tosses.end(); ++iter) {
+    if (iter != msg.tosses.begin()) dump += ",";
     const auto dumping = *iter;
     dump += "{";
     dump += "\"value\": " + std::to_string(dumping.value);
@@ -1906,9 +1906,9 @@ dump_json_CoreMsg_ANNOUNCE_NUMBER(const CoreMsg_ANNOUNCE_NUMBER &msg) {
   dump += "{";
   dump += "\"player\": " + std::to_string(msg.player);
   dump += ",";
-  dump += "\"count\": [";
-  for (auto iter = msg.count.begin(); iter != msg.count.end(); ++iter) {
-    if (iter != msg.count.begin()) dump += ",";
+  dump += "\"numbers\": [";
+  for (auto iter = msg.numbers.begin(); iter != msg.numbers.end(); ++iter) {
+    if (iter != msg.numbers.begin()) dump += ",";
     const auto dumping = *iter;
     dump += "{";
     dump += "\"value\": " + std::to_string(dumping.value);
