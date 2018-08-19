@@ -1,6 +1,7 @@
 # Build
 
-just `make`
+ - install `lua` package
+ - `make`
 
 # before running the demo
 
@@ -12,5 +13,5 @@ you need to copy(link) those folders (from the ygopro's install folder) to here:
 # Run
 
 ```
-./replay
+./replay <your-replay-file>
 ```
