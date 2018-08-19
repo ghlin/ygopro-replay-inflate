@@ -3,3 +3,4 @@
 *.o
 build/
 test-compile/
+scripts/
