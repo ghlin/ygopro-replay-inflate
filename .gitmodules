@@ -1,3 +1,4 @@
 [submodule "src/3rd-part/core"]
 	path = src/3rd-part/core
 	url = https://github.com/moecube/ygopro-core.git
+	branch = master
