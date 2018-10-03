@@ -1,16 +1,16 @@
-#include "load-core-cards.h"
+#include "load.h"
 #include "../3rd-part/nlohmann-json/json.hpp"
 
 #include <fstream>
 
-namespace ri::replay {
+namespace ri::core_card_data {
 
 using json_t = nlohmann::json;
 
-card_data
+CoreCardData
 load_core_card(const json_t &j)
 {
-  card_data c;
+  CoreCardData c;
 
   c.code      = j["id"].get<u32>();
   c.alias     = j["alias"].get<u32>();
@@ -21,6 +21,8 @@ load_core_card(const json_t &j)
   c.race      = j["race"].get<u32>();
   c.attack    = j["atk"].get<i32>();
   c.defense   = j["def"].get<i32>();
+  c.name      = j["name"].get<Str>();
+  c.desc      = j["desc"].get<Str>();
 
   if (c.type & TYPE_LINK) {
     c.link_marker = c.defense;
@@ -36,7 +38,7 @@ load_core_card(const json_t &j)
   return c;
 }
 
-Seq<card_data>
+Seq<CoreCardData>
 load_core_cards(const Str &file_path)
 {
   std::ifstream file(file_path);
@@ -51,7 +53,7 @@ load_core_cards(const Str &file_path)
   json_t j;
   file >> j;
 
-  Seq<card_data> cards;
+  Seq<CoreCardData> cards;
   for (auto iter = j.begin(); iter != j.end(); ++iter) {
     cards.push_back(load_core_card(iter.value()));
   }
@@ -60,7 +62,7 @@ load_core_cards(const Str &file_path)
 }
 
 CoreCardStorage
-make_core_card_storage(const Seq<card_data> &cards)
+make_core_card_storage(const Seq<CoreCardData> &cards)
 {
   CoreCardStorage cc;
   for (const auto &c: cards) {
@@ -71,4 +73,5 @@ make_core_card_storage(const Seq<card_data> &cards)
 }
 
 
-} // namespace ri::replay
+} // namespace ri::core_card_data
+

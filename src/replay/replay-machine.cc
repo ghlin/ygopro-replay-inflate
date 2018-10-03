@@ -1,7 +1,7 @@
 #include "replay-machine.h"
 #include "parse-meta.h"
 #include "handle-message.h"
-#include "load-core-cards.h"
+#include "../core-card-data/default-storage.h"
 #include "../3rd-part/core/ocgapi.h"
 #include "../3rd-part/core/mtrandom.h"
 
@@ -9,14 +9,13 @@ namespace ri::replay {
 
 using duel_t = ptr; // long.
 
-static CoreCardStorage default_core_card_storage;
-
 uint32
 load_from_static_storage(uint32 code, card_data *d)
 {
-  const auto found = default_core_card_storage.lookup.find(code);
+  const auto &card_storage = *core_card_data::default_core_card_storage();
+  const auto found = card_storage.lookup.find(code);
 
-  if (found != default_core_card_storage.lookup.end()) {
+  if (found != card_storage.lookup.cend()) {
     *d = found->second;
   } else {
     std::fprintf( stderr
@@ -29,7 +28,8 @@ load_from_static_storage(uint32 code, card_data *d)
   return 0;
 }
 
-duel_t setup_core_engine(int seed)
+duel_t
+setup_core_engine(int seed)
 {
   mtrandom rnd;
   rnd.reset(seed);
@@ -44,8 +44,6 @@ init_core_engine()
   set_script_reader(default_script_reader);
   set_card_reader(load_from_static_storage);
   set_message_handler(default_message_handler);
-
-  default_core_card_storage = make_core_card_storage(load_core_cards("from-sqlite3.json"));
 }
 
 Seq<core_msg::CoreMsg>

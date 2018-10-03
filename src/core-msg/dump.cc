@@ -18,10 +18,10 @@ format_value(T value)
     << std::setfill('0')
     << std::setw(2 * sizeof value)
     << std::hex
-    << value
+    << static_cast<int>(value)
     << " / "
     << std::dec
-    << value;
+    << static_cast<int>(value);
 
   return builder.str();
 }
