@@ -1,16 +1,17 @@
 # YGOPRO replay inflate
 
-converts ygopro's replay file (.yrp) into json file contains each move.
+Convert ygopro's replay file (.yrp) into json file contains each move.
 
-> this is a demo version, there might be bugs.
+> this is a demo version, there might be bugs, and I didn't compile/test it on windows.
 
-> also, TAG duel are not supported by now.
+> also, TAG duels are not supported by now.
+
 
 ## How to build?
 
 ### Build requirements
 
-- `cmake`
+- `cmake >= 3.0.0`
 - `sqlite3`
 - `gcc` or `clang`
   > minimal version? not sure... as long as it supports c++17
@@ -19,21 +20,27 @@ converts ygopro's replay file (.yrp) into json file contains each move.
 
 > You can skip this part if you're already familiar with cmake.
 
-``` bash
+``` sh
 # clone the repo
 git clone https://github.com/ghlin/ygopro-replay-inflate.git
+
+# init submodules
+cd ygopro-replay-inflate
+git submodule init
+git submodule update
 
 # prepare a build folder
 mkdir build
 cd build
 
 # configure & generate
-cmake ../ygopro-replay-inflate
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/.local
 
 # build
 make
-make install # or `sudo make install`
+make install
 
+# replay-inflate is now installed to $HOME/.local/bin
 ```
 
 ## How to run the demo?
@@ -42,12 +49,14 @@ You need to get [YGOPRO](https://github.com/moecube/ygopro) installed before run
 
 You can download it from [this page](https://github.com/moecube/ygopro/releases).
 
-``` bash
+``` sh
 # Assuming your ygopro is installed to ~/some/where/ygopro
 replay-inflate ~/some/where/ygopro/replay/foo.yrp -p ~/some/where/ygopro -o out.json
 ```
 
 ## Example output
+
+> from `misc/test.yrp`, with some modifications to make it readable.
 
 ``` json
 {
@@ -124,3 +133,8 @@ replay-inflate ~/some/where/ygopro/replay/foo.yrp -p ~/some/where/ygopro -o out.
     "..."
   ]
 }
+```
+
+## What does `MSG_*` mean?
+
+- `misc/message.interface.ts` contains message definitions.

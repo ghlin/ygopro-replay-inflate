@@ -1,6 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
-
 type MSG_RETRY = 'MSG_RETRY';
 type MSG_HINT = 'MSG_HINT';
 type MSG_WIN = 'MSG_WIN';
