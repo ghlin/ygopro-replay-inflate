@@ -2,11 +2,52 @@
 
 converts ygopro's replay file (.yrp) into json file contains each move.
 
-## demo
+> this is a demo version, there might be bugs.
 
-see `demo/README.md"
+> also, TAG duel are not supported by now.
 
-## example output
+## How to build?
+
+### Build requirements
+
+- `cmake`
+- `sqlite3`
+- `gcc` or `clang`
+  > minimal version? not sure... as long as it supports c++17
+
+### Build steps
+
+> You can skip this part if you're already familiar with cmake.
+
+``` bash
+# clone the repo
+git clone https://github.com/ghlin/ygopro-replay-inflate.git
+
+# prepare a build folder
+mkdir build
+cd build
+
+# configure & generate
+cmake ../ygopro-replay-inflate
+
+# build
+make
+make install # or `sudo make install`
+
+```
+
+## How to run the demo?
+
+You need to get [YGOPRO](https://github.com/moecube/ygopro) installed before running this program. 
+
+You can download it from [this page](https://github.com/moecube/ygopro/releases).
+
+``` bash
+# Assuming your ygopro is installed to ~/some/where/ygopro
+replay-inflate ~/some/where/ygopro/replay/foo.yrp -p ~/some/where/ygopro -o out.json
+```
+
+## Example output
 
 ``` json
 {
