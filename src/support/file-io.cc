@@ -28,18 +28,5 @@ Buffer read_file(const Str &path)
   return buffer;
 }
 
-void write_file(const Str &path, const Buffer &buffer)
-{
-  std::FILE *file = std::fopen(path.c_str(), "wb");
-
-  if (!file) {
-    std::fprintf(stderr, "[ERROR] failed to open file %s for read\n", path.c_str());
-    throw std::runtime_error("failed to open file");
-  }
-
-  std::fwrite(&buffer.front(), 1, buffer.size(), file);
-  std::fclose(file);
-}
-
 } // namespace ri
 

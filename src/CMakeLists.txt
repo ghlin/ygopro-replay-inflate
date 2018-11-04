@@ -6,11 +6,9 @@ ADD_SUBDIRECTORY(3rd-part/core.cmake)
 ADD_SUBDIRECTORY(3rd-part/lua)
 ADD_SUBDIRECTORY(3rd-part/lzma)
 
-# TODO: FIND_PACKAGE Sqlite3
-
 SET(APP_SRC
-  # find . -type f -name "*.(cpp|h)" | grep -v 3rd
   app.cc
+  options.cc
   replay/replay-machine.cc
   replay/parse-meta.cc
   replay/handle-message.cc
@@ -21,8 +19,9 @@ SET(APP_SRC
 
 ADD_EXECUTABLE(app ${APP_SRC})
 
-# TODO: link sqlite3.
-TARGET_LINK_LIBRARIES(app core lua lzma)
+FIND_LIBRARY(sqlite3 REQUIRED)
+
+TARGET_LINK_LIBRARIES(app core lua lzma sqlite3)
 
 SET_TARGET_PROPERTIES(app PROPERTIES
   OUTPUT_NAME ${PROJECT_OUTPUT_NAME}

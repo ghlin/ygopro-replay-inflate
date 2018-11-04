@@ -3,6 +3,10 @@
 #include "replay/parse-meta.h"
 #include "core-msg/dump.h"
 #include "3rd-part/nlohmann-json/json.hpp"
+#include "options.h"
+
+#include <iostream>
+#include <fstream>
 
 namespace ri::core_msg {
 void to_json(nlohmann::json &j, const CoreMsg &msg)
@@ -45,10 +49,29 @@ void to_json(nlohmann::json &j, const ReplayMeta &meta)
 
 int main(int argc, const char **argv)
 {
-  const auto replay_buffer = ri::read_file(argc > 1 ? argv[1] : "_LastReplay.yrp");
-  const auto replay_meta = ri::replay::parse_replay_meta(replay_buffer);
+  auto options = ri::parse_command_line_options(argc, argv);
 
-  ri::replay::init_core_engine();
+  if (!options) {
+    std::cerr << ri::CommandLineOptions::usage << std::endl;
+    return -1;
+  }
+
+  if (options->display_usage_only) {
+    std::cerr << ri::CommandLineOptions::usage << std::endl;
+    return 0;
+  }
+
+  if (options->display_version_only) {
+    std::cerr << ri::CommandLineOptions::version << std::endl;
+    return 0;
+  }
+
+  const auto ygopro_root   = options->ygopro_root_path.value_or(".");
+  const auto replay_file   = options->replay_file_path.value_or(ygopro_root + "/replay/_LastReplay.yrp");
+  const auto replay_buffer = ri::read_file(replay_file);
+  const auto replay_meta   = ri::replay::parse_replay_meta(replay_buffer);
+
+  ri::replay::init_core_engine(ygopro_root);
 
   const auto messages = ri::replay::simulate(replay_meta);
 
@@ -56,7 +79,19 @@ int main(int argc, const char **argv)
   nlohmann::json data_json = messages;
   inflated["records"] = data_json;
 
-  std::cout << inflated.dump(2);
+  const auto &output_file = options->output_file_path;
+
+  if (!output_file) {
+    std::cout << inflated.dump(2);
+  } else {
+    std::ofstream target(*output_file);
+    if (!target) {
+      std::cerr << "Cannot write to file " << *output_file << std::endl;
+      return -3;
+    }
+
+    target << inflated.dump(2);
+  }
 
   return 0;
 }

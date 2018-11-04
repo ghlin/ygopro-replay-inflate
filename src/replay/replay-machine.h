@@ -21,6 +21,6 @@ simulate(const ReplayMeta &meta);
  *
  * call this before `replay'
  */
-void init_core_engine();
+void init_core_engine(const Str &ygopro_root_path);
 
 } // namespace ri::replay

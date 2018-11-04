@@ -5,7 +5,7 @@
 namespace ri::replay {
 
 Seq<card_data>
-load_core_cards(const Str &file_path);
+load_core_cards(const Str &ygopro_root_path);
 
 struct CoreCardStorage
 {

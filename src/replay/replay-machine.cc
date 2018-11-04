@@ -37,15 +37,42 @@ duel_t setup_core_engine(int seed)
   return create_duel(rnd.rand());
 }
 
+/*
+ * XXX: what ocgcore exposes is `byte *script_reader(const char *, int *)`
+ *      it is impossible to load script from arbitrary path without
+ *      this variable.
+ */
+static Str g_ygopro_root_path;
+
+static
+byte* read_script_from_ygopro_root_path(const char *script_name, int *slen) {
+  const auto real_path = g_ygopro_root_path + "/" + script_name;
+
+  // forward to ocgcore's default script reader.
+  return default_script_reader(real_path.c_str(), slen);
+}
 
 void
-init_core_engine()
+init_core_engine(const Str &ygopro_root_path)
 {
-  set_script_reader(default_script_reader);
+  if (ygopro_root_path.empty()) {
+    std::fprintf( stderr
+                , "[ERROR] YGOPRO_FOLDER is not set");
+    throw new std::runtime_error("Option YGOPRO_FOLDER unset");
+  }
+
+  // normalize path.
+  const auto last_char = ygopro_root_path.at(ygopro_root_path.size() - 1);
+
+  g_ygopro_root_path = last_char == '/'
+    ? ygopro_root_path.substr(0, ygopro_root_path.size() - 1)
+    : ygopro_root_path;
+
+  default_core_card_storage = make_core_card_storage(load_core_cards(g_ygopro_root_path));
+
+  set_script_reader(read_script_from_ygopro_root_path);
   set_card_reader(load_from_static_storage);
   set_message_handler(default_message_handler);
-
-  default_core_card_storage = make_core_card_storage(load_core_cards("from-sqlite3.json"));
 }
 
 Seq<core_msg::CoreMsg>
