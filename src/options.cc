@@ -65,6 +65,8 @@ parse_command_line_options(int argc, const char **argv)
       case P_YGOPRO_ROOT_PATH: options.ygopro_root_path = arg; break;
       case P_OUTPUT_FILE_PATH: options.output_file_path = arg; break;
       }
+
+      state = P_REPLAY_FILE_PATH;
     }
   }
 
