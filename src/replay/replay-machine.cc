@@ -20,10 +20,16 @@ load_from_static_storage(uint32 code, card_data *d)
     *d = found->second;
   } else {
     std::fprintf( stderr
-                , "[ERROR] load_from_static_storage: unknown code %d\n"
+                ,  "Unknown card (of code %d)\n"
+                   "This may be caused by:\n"
+                   "  1) your YGOPRO is out of date, or\n"
+                   "  2) the replay file contains DIY card(s) and your YGOPRO edition doesn't\n"
+                   "     recognize them.\n"
+                   "     If you have the right edition of YGOPRO which generates the replay,\n"
+                   "     try re-run replay-inflate and pass it to -p\n"
                 , code);
 
-    throw std::runtime_error("load_from_static_storage: unknonw code");
+    throw UnknownCodeException(code);
   }
 
   return 0;

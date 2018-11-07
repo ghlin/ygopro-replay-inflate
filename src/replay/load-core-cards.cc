@@ -27,8 +27,10 @@ load_core_cards(const Str &ygopro_root_path)
   if (::sqlite3_open_v2(cards_cdb_path.c_str(), &db, SQLITE_OPEN_READONLY, 0) != SQLITE_OK) {
     std::fprintf( stderr
                 , "[ERROR] failed to open %s as sqlite3 databse: %s\n"
+                  "        is %s really your YGOPRO folder?\n"
                 , cards_cdb_path.c_str()
-                , ::sqlite3_errmsg(db));
+                , ::sqlite3_errmsg(db)
+                , ygopro_root_path.c_str());
 
     throw std::runtime_error("Cannot open cards.cdb as sqlite3 database");
   }

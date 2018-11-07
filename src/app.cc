@@ -47,7 +47,7 @@ void to_json(nlohmann::json &j, const ReplayMeta &meta)
 }
 } // namespace ri::replay
 
-int main(int argc, const char **argv)
+int main(int argc, const char **argv) try
 {
   auto options = ri::parse_command_line_options(argc, argv);
 
@@ -94,5 +94,7 @@ int main(int argc, const char **argv)
   }
 
   return 0;
+} catch (const ri::replay::UnknownCodeException &) {
+  // be quiet...
 }
 

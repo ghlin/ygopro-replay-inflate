@@ -18,6 +18,7 @@ buffer_next( buffer_ptr *in
                 , "[ERROR] end of buffer reached when parsing %s\n"
                   "                                   in func %s\n"
                   "                                   at line %d\n"
+                  "        The replay file may be broken\n"
                 , label
                 , func
                 , line);
