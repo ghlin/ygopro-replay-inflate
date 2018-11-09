@@ -11,7 +11,7 @@ Convert ygopro's replay file (.yrp) into json file contains each move.
 
 ### Build requirements
 
-- `cmake >= 3.0.0`
+- `cmake >= 3.8.0`
 - `sqlite3`
 - `gcc` or `clang`
   > minimal version? not sure... as long as it supports c++17
