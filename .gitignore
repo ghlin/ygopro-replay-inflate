@@ -4,3 +4,4 @@
 build/
 test-compile/
 scripts/
+/.vscode/settings.json
