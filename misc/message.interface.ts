@@ -1,90 +1,91 @@
-type MSG_RETRY = 'MSG_RETRY';
-type MSG_HINT = 'MSG_HINT';
-type MSG_WIN = 'MSG_WIN';
-type MSG_WAITING = 'MSG_WAITING';
-type MSG_START = 'MSG_START';
-type MSG_SELECT_BATTLECMD = 'MSG_SELECT_BATTLECMD';
-type MSG_SELECT_IDLECMD = 'MSG_SELECT_IDLECMD';
-type MSG_SELECT_EFFECTYN = 'MSG_SELECT_EFFECTYN';
-type MSG_SELECT_YESNO = 'MSG_SELECT_YESNO';
-type MSG_SELECT_OPTION = 'MSG_SELECT_OPTION';
-type MSG_SELECT_CARD = 'MSG_SELECT_CARD';
-type MSG_SELECT_UNSELECT_CARD = 'MSG_SELECT_UNSELECT_CARD';
-type MSG_SELECT_CHAIN = 'MSG_SELECT_CHAIN';
-type MSG_SELECT_PLACE = 'MSG_SELECT_PLACE';
-type MSG_SELECT_DISFIELD = 'MSG_SELECT_DISFIELD';
-type MSG_SELECT_POSITION = 'MSG_SELECT_POSITION';
-type MSG_SELECT_TRIBUTE = 'MSG_SELECT_TRIBUTE';
-type MSG_SELECT_COUNTER = 'MSG_SELECT_COUNTER';
-type MSG_SELECT_SUM = 'MSG_SELECT_SUM';
-type MSG_SORT_CARD = 'MSG_SORT_CARD';
-type MSG_SORT_CHAIN = 'MSG_SORT_CHAIN';
-type MSG_CONFIRM_DECKTOP = 'MSG_CONFIRM_DECKTOP';
-type MSG_CONFIRM_EXTRATOP = 'MSG_CONFIRM_EXTRATOP';
-type MSG_CONFIRM_CARDS = 'MSG_CONFIRM_CARDS';
-type MSG_SHUFFLE_DECK = 'MSG_SHUFFLE_DECK';
-type MSG_REFRESH_DECK = 'MSG_REFRESH_DECK';
-type MSG_SWAP_GRAVE_DECK = 'MSG_SWAP_GRAVE_DECK';
-type MSG_SHUFFLE_SET_CARD = 'MSG_SHUFFLE_SET_CARD';
-type MSG_SHUFFLE_HAND = 'MSG_SHUFFLE_HAND';
-type MSG_SHUFFLE_EXTRA = 'MSG_SHUFFLE_EXTRA';
-type MSG_REVERSE_DECK = 'MSG_REVERSE_DECK';
-type MSG_DECK_TOP = 'MSG_DECK_TOP';
-type MSG_NEW_TURN = 'MSG_NEW_TURN';
-type MSG_NEW_PHASE = 'MSG_NEW_PHASE';
-type MSG_MOVE = 'MSG_MOVE';
-type MSG_POS_CHANGE = 'MSG_POS_CHANGE';
-type MSG_SET = 'MSG_SET';
-type MSG_SWAP = 'MSG_SWAP';
-type MSG_FIELD_DISABLED = 'MSG_FIELD_DISABLED';
-type MSG_SUMMONING = 'MSG_SUMMONING';
-type MSG_SUMMONED = 'MSG_SUMMONED';
-type MSG_SPSUMMONING = 'MSG_SPSUMMONING';
-type MSG_SPSUMMONED = 'MSG_SPSUMMONED';
-type MSG_FLIPSUMMONING = 'MSG_FLIPSUMMONING';
-type MSG_FLIPSUMMONED = 'MSG_FLIPSUMMONED';
-type MSG_CHAINING = 'MSG_CHAINING';
-type MSG_CHAINED = 'MSG_CHAINED';
-type MSG_CHAIN_SOLVING = 'MSG_CHAIN_SOLVING';
-type MSG_CHAIN_SOLVED = 'MSG_CHAIN_SOLVED';
-type MSG_CHAIN_END = 'MSG_CHAIN_END';
-type MSG_CHAIN_NEGATED = 'MSG_CHAIN_NEGATED';
-type MSG_CHAIN_DISABLED = 'MSG_CHAIN_DISABLED';
-type MSG_CARD_SELECTED = 'MSG_CARD_SELECTED';
-type MSG_RANDOM_SELECTED = 'MSG_RANDOM_SELECTED';
-type MSG_BECOME_TARGET = 'MSG_BECOME_TARGET';
-type MSG_DRAW = 'MSG_DRAW';
-type MSG_DAMAGE = 'MSG_DAMAGE';
-type MSG_RECOVER = 'MSG_RECOVER';
-type MSG_LPUPDATE = 'MSG_LPUPDATE';
-type MSG_PAY_LPCOST = 'MSG_PAY_LPCOST';
-type MSG_EQUIP = 'MSG_EQUIP';
-type MSG_UNEQUIP = 'MSG_UNEQUIP';
-type MSG_CARD_TARGET = 'MSG_CARD_TARGET';
-type MSG_CANCEL_TARGET = 'MSG_CANCEL_TARGET';
-type MSG_ADD_COUNTER = 'MSG_ADD_COUNTER';
-type MSG_REMOVE_COUNTER = 'MSG_REMOVE_COUNTER';
-type MSG_ATTACK = 'MSG_ATTACK';
-type MSG_BATTLE = 'MSG_BATTLE';
-type MSG_ATTACK_DISABLED = 'MSG_ATTACK_DISABLED';
-type MSG_DAMAGE_STEP_START = 'MSG_DAMAGE_STEP_START';
-type MSG_DAMAGE_STEP_END = 'MSG_DAMAGE_STEP_END';
-type MSG_MISSED_EFFECT = 'MSG_MISSED_EFFECT';
-type MSG_TOSS_COIN = 'MSG_TOSS_COIN';
-type MSG_TOSS_DICE = 'MSG_TOSS_DICE';
-type MSG_ROCK_PAPER_SCISSORS = 'MSG_ROCK_PAPER_SCISSORS';
-type MSG_HAND_RES = 'MSG_HAND_RES';
-type MSG_ANNOUNCE_RACE = 'MSG_ANNOUNCE_RACE';
-type MSG_ANNOUNCE_ATTRIB = 'MSG_ANNOUNCE_ATTRIB';
-type MSG_ANNOUNCE_CARD = 'MSG_ANNOUNCE_CARD';
-type MSG_ANNOUNCE_NUMBER = 'MSG_ANNOUNCE_NUMBER';
-type MSG_ANNOUNCE_CARD_FILTER = 'MSG_ANNOUNCE_CARD_FILTER';
-type MSG_CARD_HINT = 'MSG_CARD_HINT';
-type MSG_PLAYER_HINT = 'MSG_PLAYER_HINT';
-type MSG_MATCH_KILL = 'MSG_MATCH_KILL';
-type MSG_RELOAD_FIELD = 'MSG_RELOAD_FIELD';
 
-type MSG_TYPE =
+export type MSG_RETRY = 'MSG_RETRY';
+export type MSG_HINT = 'MSG_HINT';
+export type MSG_WIN = 'MSG_WIN';
+export type MSG_WAITING = 'MSG_WAITING';
+export type MSG_START = 'MSG_START';
+export type MSG_SELECT_BATTLECMD = 'MSG_SELECT_BATTLECMD';
+export type MSG_SELECT_IDLECMD = 'MSG_SELECT_IDLECMD';
+export type MSG_SELECT_EFFECTYN = 'MSG_SELECT_EFFECTYN';
+export type MSG_SELECT_YESNO = 'MSG_SELECT_YESNO';
+export type MSG_SELECT_OPTION = 'MSG_SELECT_OPTION';
+export type MSG_SELECT_CARD = 'MSG_SELECT_CARD';
+export type MSG_SELECT_UNSELECT_CARD = 'MSG_SELECT_UNSELECT_CARD';
+export type MSG_SELECT_CHAIN = 'MSG_SELECT_CHAIN';
+export type MSG_SELECT_PLACE = 'MSG_SELECT_PLACE';
+export type MSG_SELECT_DISFIELD = 'MSG_SELECT_DISFIELD';
+export type MSG_SELECT_POSITION = 'MSG_SELECT_POSITION';
+export type MSG_SELECT_TRIBUTE = 'MSG_SELECT_TRIBUTE';
+export type MSG_SELECT_COUNTER = 'MSG_SELECT_COUNTER';
+export type MSG_SELECT_SUM = 'MSG_SELECT_SUM';
+export type MSG_SORT_CARD = 'MSG_SORT_CARD';
+export type MSG_SORT_CHAIN = 'MSG_SORT_CHAIN';
+export type MSG_CONFIRM_DECKTOP = 'MSG_CONFIRM_DECKTOP';
+export type MSG_CONFIRM_EXTRATOP = 'MSG_CONFIRM_EXTRATOP';
+export type MSG_CONFIRM_CARDS = 'MSG_CONFIRM_CARDS';
+export type MSG_SHUFFLE_DECK = 'MSG_SHUFFLE_DECK';
+export type MSG_REFRESH_DECK = 'MSG_REFRESH_DECK';
+export type MSG_SWAP_GRAVE_DECK = 'MSG_SWAP_GRAVE_DECK';
+export type MSG_SHUFFLE_SET_CARD = 'MSG_SHUFFLE_SET_CARD';
+export type MSG_SHUFFLE_HAND = 'MSG_SHUFFLE_HAND';
+export type MSG_SHUFFLE_EXTRA = 'MSG_SHUFFLE_EXTRA';
+export type MSG_REVERSE_DECK = 'MSG_REVERSE_DECK';
+export type MSG_DECK_TOP = 'MSG_DECK_TOP';
+export type MSG_NEW_TURN = 'MSG_NEW_TURN';
+export type MSG_NEW_PHASE = 'MSG_NEW_PHASE';
+export type MSG_MOVE = 'MSG_MOVE';
+export type MSG_POS_CHANGE = 'MSG_POS_CHANGE';
+export type MSG_SET = 'MSG_SET';
+export type MSG_SWAP = 'MSG_SWAP';
+export type MSG_FIELD_DISABLED = 'MSG_FIELD_DISABLED';
+export type MSG_SUMMONING = 'MSG_SUMMONING';
+export type MSG_SUMMONED = 'MSG_SUMMONED';
+export type MSG_SPSUMMONING = 'MSG_SPSUMMONING';
+export type MSG_SPSUMMONED = 'MSG_SPSUMMONED';
+export type MSG_FLIPSUMMONING = 'MSG_FLIPSUMMONING';
+export type MSG_FLIPSUMMONED = 'MSG_FLIPSUMMONED';
+export type MSG_CHAINING = 'MSG_CHAINING';
+export type MSG_CHAINED = 'MSG_CHAINED';
+export type MSG_CHAIN_SOLVING = 'MSG_CHAIN_SOLVING';
+export type MSG_CHAIN_SOLVED = 'MSG_CHAIN_SOLVED';
+export type MSG_CHAIN_END = 'MSG_CHAIN_END';
+export type MSG_CHAIN_NEGATED = 'MSG_CHAIN_NEGATED';
+export type MSG_CHAIN_DISABLED = 'MSG_CHAIN_DISABLED';
+export type MSG_CARD_SELECTED = 'MSG_CARD_SELECTED';
+export type MSG_RANDOM_SELECTED = 'MSG_RANDOM_SELECTED';
+export type MSG_BECOME_TARGET = 'MSG_BECOME_TARGET';
+export type MSG_DRAW = 'MSG_DRAW';
+export type MSG_DAMAGE = 'MSG_DAMAGE';
+export type MSG_RECOVER = 'MSG_RECOVER';
+export type MSG_LPUPDATE = 'MSG_LPUPDATE';
+export type MSG_PAY_LPCOST = 'MSG_PAY_LPCOST';
+export type MSG_EQUIP = 'MSG_EQUIP';
+export type MSG_UNEQUIP = 'MSG_UNEQUIP';
+export type MSG_CARD_TARGET = 'MSG_CARD_TARGET';
+export type MSG_CANCEL_TARGET = 'MSG_CANCEL_TARGET';
+export type MSG_ADD_COUNTER = 'MSG_ADD_COUNTER';
+export type MSG_REMOVE_COUNTER = 'MSG_REMOVE_COUNTER';
+export type MSG_ATTACK = 'MSG_ATTACK';
+export type MSG_BATTLE = 'MSG_BATTLE';
+export type MSG_ATTACK_DISABLED = 'MSG_ATTACK_DISABLED';
+export type MSG_DAMAGE_STEP_START = 'MSG_DAMAGE_STEP_START';
+export type MSG_DAMAGE_STEP_END = 'MSG_DAMAGE_STEP_END';
+export type MSG_MISSED_EFFECT = 'MSG_MISSED_EFFECT';
+export type MSG_TOSS_COIN = 'MSG_TOSS_COIN';
+export type MSG_TOSS_DICE = 'MSG_TOSS_DICE';
+export type MSG_ROCK_PAPER_SCISSORS = 'MSG_ROCK_PAPER_SCISSORS';
+export type MSG_HAND_RES = 'MSG_HAND_RES';
+export type MSG_ANNOUNCE_RACE = 'MSG_ANNOUNCE_RACE';
+export type MSG_ANNOUNCE_ATTRIB = 'MSG_ANNOUNCE_ATTRIB';
+export type MSG_ANNOUNCE_CARD = 'MSG_ANNOUNCE_CARD';
+export type MSG_ANNOUNCE_NUMBER = 'MSG_ANNOUNCE_NUMBER';
+export type MSG_ANNOUNCE_CARD_FILTER = 'MSG_ANNOUNCE_CARD_FILTER';
+export type MSG_CARD_HINT = 'MSG_CARD_HINT';
+export type MSG_PLAYER_HINT = 'MSG_PLAYER_HINT';
+export type MSG_MATCH_KILL = 'MSG_MATCH_KILL';
+export type MSG_RELOAD_FIELD = 'MSG_RELOAD_FIELD';
+
+export type MSG_TYPE =
     MSG_RETRY
   | MSG_HINT
   | MSG_WIN
@@ -171,13 +172,13 @@ type MSG_TYPE =
   | MSG_MATCH_KILL
   | MSG_RELOAD_FIELD;
 
-interface IMSG_RETRY {
+export interface IMSG_RETRY {
   type: 'MSG_RETRY';
   data: { }
 }
 
 
-interface IMSG_HINT {
+export interface IMSG_HINT {
   type: 'MSG_HINT';
   data: {
     type: number;
@@ -187,7 +188,7 @@ interface IMSG_HINT {
 }
 
 
-interface IMSG_WIN {
+export interface IMSG_WIN {
   type: 'MSG_WIN';
   data: {
     player: number;
@@ -196,13 +197,13 @@ interface IMSG_WIN {
 }
 
 
-interface IMSG_WAITING {
+export interface IMSG_WAITING {
   type: 'MSG_WAITING';
   data: { }
 }
 
 
-interface IMSG_START {
+export interface IMSG_START {
   type: 'MSG_START';
   data: {
     player_type: number;
@@ -216,7 +217,7 @@ interface IMSG_START {
 }
 
 
-interface IMSG_SELECT_BATTLECMD {
+export interface IMSG_SELECT_BATTLECMD {
   type: 'MSG_SELECT_BATTLECMD';
   data: {
     player: number;
@@ -240,7 +241,7 @@ interface IMSG_SELECT_BATTLECMD {
 }
 
 
-interface IMSG_SELECT_IDLECMD {
+export interface IMSG_SELECT_IDLECMD {
   type: 'MSG_SELECT_IDLECMD';
   data: {
     player: number;
@@ -288,7 +289,7 @@ interface IMSG_SELECT_IDLECMD {
 }
 
 
-interface IMSG_SELECT_EFFECTYN {
+export interface IMSG_SELECT_EFFECTYN {
   type: 'MSG_SELECT_EFFECTYN';
   data: {
     player: number;
@@ -302,7 +303,7 @@ interface IMSG_SELECT_EFFECTYN {
 }
 
 
-interface IMSG_SELECT_YESNO {
+export interface IMSG_SELECT_YESNO {
   type: 'MSG_SELECT_YESNO';
   data: {
     player: number;
@@ -311,7 +312,7 @@ interface IMSG_SELECT_YESNO {
 }
 
 
-interface IMSG_SELECT_OPTION {
+export interface IMSG_SELECT_OPTION {
   type: 'MSG_SELECT_OPTION';
   data: {
     player: number;
@@ -322,7 +323,7 @@ interface IMSG_SELECT_OPTION {
 }
 
 
-interface IMSG_SELECT_CARD {
+export interface IMSG_SELECT_CARD {
   type: 'MSG_SELECT_CARD';
   data: {
     player: number;
@@ -340,7 +341,7 @@ interface IMSG_SELECT_CARD {
 }
 
 
-interface IMSG_SELECT_UNSELECT_CARD {
+export interface IMSG_SELECT_UNSELECT_CARD {
   type: 'MSG_SELECT_UNSELECT_CARD';
   data: {
     player: number;
@@ -366,7 +367,7 @@ interface IMSG_SELECT_UNSELECT_CARD {
 }
 
 
-interface IMSG_SELECT_CHAIN {
+export interface IMSG_SELECT_CHAIN {
   type: 'MSG_SELECT_CHAIN';
   data: {
     player: number;
@@ -387,7 +388,7 @@ interface IMSG_SELECT_CHAIN {
 }
 
 
-interface IMSG_SELECT_PLACE {
+export interface IMSG_SELECT_PLACE {
   type: 'MSG_SELECT_PLACE';
   data: {
     player: number;
@@ -397,7 +398,7 @@ interface IMSG_SELECT_PLACE {
 }
 
 
-interface IMSG_SELECT_DISFIELD {
+export interface IMSG_SELECT_DISFIELD {
   type: 'MSG_SELECT_DISFIELD';
   data: {
     player: number;
@@ -407,7 +408,7 @@ interface IMSG_SELECT_DISFIELD {
 }
 
 
-interface IMSG_SELECT_POSITION {
+export interface IMSG_SELECT_POSITION {
   type: 'MSG_SELECT_POSITION';
   data: {
     player: number;
@@ -417,7 +418,7 @@ interface IMSG_SELECT_POSITION {
 }
 
 
-interface IMSG_SELECT_TRIBUTE {
+export interface IMSG_SELECT_TRIBUTE {
   type: 'MSG_SELECT_TRIBUTE';
   data: {
     player: number;
@@ -435,7 +436,7 @@ interface IMSG_SELECT_TRIBUTE {
 }
 
 
-interface IMSG_SELECT_COUNTER {
+export interface IMSG_SELECT_COUNTER {
   type: 'MSG_SELECT_COUNTER';
   data: {
     player: number;
@@ -452,7 +453,7 @@ interface IMSG_SELECT_COUNTER {
 }
 
 
-interface IMSG_SELECT_SUM {
+export interface IMSG_SELECT_SUM {
   type: 'MSG_SELECT_SUM';
   data: {
     select_mode: number;
@@ -478,7 +479,7 @@ interface IMSG_SELECT_SUM {
 }
 
 
-interface IMSG_SORT_CARD {
+export interface IMSG_SORT_CARD {
   type: 'MSG_SORT_CARD';
   data: {
     player: number;
@@ -492,7 +493,7 @@ interface IMSG_SORT_CARD {
 }
 
 
-interface IMSG_SORT_CHAIN {
+export interface IMSG_SORT_CHAIN {
   type: 'MSG_SORT_CHAIN';
   data: {
     player: number;
@@ -506,7 +507,7 @@ interface IMSG_SORT_CHAIN {
 }
 
 
-interface IMSG_CONFIRM_DECKTOP {
+export interface IMSG_CONFIRM_DECKTOP {
   type: 'MSG_CONFIRM_DECKTOP';
   data: {
     player: number;
@@ -520,7 +521,7 @@ interface IMSG_CONFIRM_DECKTOP {
 }
 
 
-interface IMSG_CONFIRM_EXTRATOP {
+export interface IMSG_CONFIRM_EXTRATOP {
   type: 'MSG_CONFIRM_EXTRATOP';
   data: {
     player: number;
@@ -534,7 +535,7 @@ interface IMSG_CONFIRM_EXTRATOP {
 }
 
 
-interface IMSG_CONFIRM_CARDS {
+export interface IMSG_CONFIRM_CARDS {
   type: 'MSG_CONFIRM_CARDS';
   data: {
     player: number;
@@ -548,7 +549,7 @@ interface IMSG_CONFIRM_CARDS {
 }
 
 
-interface IMSG_SHUFFLE_DECK {
+export interface IMSG_SHUFFLE_DECK {
   type: 'MSG_SHUFFLE_DECK';
   data: {
     player: number;
@@ -556,7 +557,7 @@ interface IMSG_SHUFFLE_DECK {
 }
 
 
-interface IMSG_REFRESH_DECK {
+export interface IMSG_REFRESH_DECK {
   type: 'MSG_REFRESH_DECK';
   data: {
     player: number;
@@ -564,7 +565,7 @@ interface IMSG_REFRESH_DECK {
 }
 
 
-interface IMSG_SWAP_GRAVE_DECK {
+export interface IMSG_SWAP_GRAVE_DECK {
   type: 'MSG_SWAP_GRAVE_DECK';
   data: {
     player: number;
@@ -572,7 +573,7 @@ interface IMSG_SWAP_GRAVE_DECK {
 }
 
 
-interface IMSG_SHUFFLE_SET_CARD {
+export interface IMSG_SHUFFLE_SET_CARD {
   type: 'MSG_SHUFFLE_SET_CARD';
   data: {
     location: number;
@@ -592,7 +593,7 @@ interface IMSG_SHUFFLE_SET_CARD {
 }
 
 
-interface IMSG_SHUFFLE_HAND {
+export interface IMSG_SHUFFLE_HAND {
   type: 'MSG_SHUFFLE_HAND';
   data: {
     player: number;
@@ -603,7 +604,7 @@ interface IMSG_SHUFFLE_HAND {
 }
 
 
-interface IMSG_SHUFFLE_EXTRA {
+export interface IMSG_SHUFFLE_EXTRA {
   type: 'MSG_SHUFFLE_EXTRA';
   data: {
     player: number;
@@ -614,13 +615,13 @@ interface IMSG_SHUFFLE_EXTRA {
 }
 
 
-interface IMSG_REVERSE_DECK {
+export interface IMSG_REVERSE_DECK {
   type: 'MSG_REVERSE_DECK';
   data: { }
 }
 
 
-interface IMSG_DECK_TOP {
+export interface IMSG_DECK_TOP {
   type: 'MSG_DECK_TOP';
   data: {
     player: number;
@@ -630,7 +631,7 @@ interface IMSG_DECK_TOP {
 }
 
 
-interface IMSG_NEW_TURN {
+export interface IMSG_NEW_TURN {
   type: 'MSG_NEW_TURN';
   data: {
     player: number;
@@ -638,7 +639,7 @@ interface IMSG_NEW_TURN {
 }
 
 
-interface IMSG_NEW_PHASE {
+export interface IMSG_NEW_PHASE {
   type: 'MSG_NEW_PHASE';
   data: {
     phase: number;
@@ -646,7 +647,7 @@ interface IMSG_NEW_PHASE {
 }
 
 
-interface IMSG_MOVE {
+export interface IMSG_MOVE {
   type: 'MSG_MOVE';
   data: {
     code: number;
@@ -663,7 +664,7 @@ interface IMSG_MOVE {
 }
 
 
-interface IMSG_POS_CHANGE {
+export interface IMSG_POS_CHANGE {
   type: 'MSG_POS_CHANGE';
   data: {
     code: number;
@@ -676,7 +677,7 @@ interface IMSG_POS_CHANGE {
 }
 
 
-interface IMSG_SET {
+export interface IMSG_SET {
   type: 'MSG_SET';
   data: {
     code: number;
@@ -688,7 +689,7 @@ interface IMSG_SET {
 }
 
 
-interface IMSG_SWAP {
+export interface IMSG_SWAP {
   type: 'MSG_SWAP';
   data: {
     code1: number;
@@ -705,7 +706,7 @@ interface IMSG_SWAP {
 }
 
 
-interface IMSG_FIELD_DISABLED {
+export interface IMSG_FIELD_DISABLED {
   type: 'MSG_FIELD_DISABLED';
   data: {
     disabled_fields: number;
@@ -713,7 +714,7 @@ interface IMSG_FIELD_DISABLED {
 }
 
 
-interface IMSG_SUMMONING {
+export interface IMSG_SUMMONING {
   type: 'MSG_SUMMONING';
   data: {
     code: number;
@@ -725,13 +726,13 @@ interface IMSG_SUMMONING {
 }
 
 
-interface IMSG_SUMMONED {
+export interface IMSG_SUMMONED {
   type: 'MSG_SUMMONED';
   data: { }
 }
 
 
-interface IMSG_SPSUMMONING {
+export interface IMSG_SPSUMMONING {
   type: 'MSG_SPSUMMONING';
   data: {
     code: number;
@@ -743,13 +744,13 @@ interface IMSG_SPSUMMONING {
 }
 
 
-interface IMSG_SPSUMMONED {
+export interface IMSG_SPSUMMONED {
   type: 'MSG_SPSUMMONED';
   data: { }
 }
 
 
-interface IMSG_FLIPSUMMONING {
+export interface IMSG_FLIPSUMMONING {
   type: 'MSG_FLIPSUMMONING';
   data: {
     code: number;
@@ -761,13 +762,13 @@ interface IMSG_FLIPSUMMONING {
 }
 
 
-interface IMSG_FLIPSUMMONED {
+export interface IMSG_FLIPSUMMONED {
   type: 'MSG_FLIPSUMMONED';
   data: { }
 }
 
 
-interface IMSG_CHAINING {
+export interface IMSG_CHAINING {
   type: 'MSG_CHAINING';
   data: {
     code: number;
@@ -784,7 +785,7 @@ interface IMSG_CHAINING {
 }
 
 
-interface IMSG_CHAINED {
+export interface IMSG_CHAINED {
   type: 'MSG_CHAINED';
   data: {
     chain_param: number;
@@ -792,7 +793,7 @@ interface IMSG_CHAINED {
 }
 
 
-interface IMSG_CHAIN_SOLVING {
+export interface IMSG_CHAIN_SOLVING {
   type: 'MSG_CHAIN_SOLVING';
   data: {
     chain_param: number;
@@ -800,7 +801,7 @@ interface IMSG_CHAIN_SOLVING {
 }
 
 
-interface IMSG_CHAIN_SOLVED {
+export interface IMSG_CHAIN_SOLVED {
   type: 'MSG_CHAIN_SOLVED';
   data: {
     chain_param: number;
@@ -808,13 +809,13 @@ interface IMSG_CHAIN_SOLVED {
 }
 
 
-interface IMSG_CHAIN_END {
+export interface IMSG_CHAIN_END {
   type: 'MSG_CHAIN_END';
   data: { }
 }
 
 
-interface IMSG_CHAIN_NEGATED {
+export interface IMSG_CHAIN_NEGATED {
   type: 'MSG_CHAIN_NEGATED';
   data: {
     chain_param: number;
@@ -822,7 +823,7 @@ interface IMSG_CHAIN_NEGATED {
 }
 
 
-interface IMSG_CHAIN_DISABLED {
+export interface IMSG_CHAIN_DISABLED {
   type: 'MSG_CHAIN_DISABLED';
   data: {
     chain_param: number;
@@ -830,13 +831,13 @@ interface IMSG_CHAIN_DISABLED {
 }
 
 
-interface IMSG_CARD_SELECTED {
+export interface IMSG_CARD_SELECTED {
   type: 'MSG_CARD_SELECTED';
   data: { }
 }
 
 
-interface IMSG_RANDOM_SELECTED {
+export interface IMSG_RANDOM_SELECTED {
   type: 'MSG_RANDOM_SELECTED';
   data: {
     player: number;
@@ -850,7 +851,7 @@ interface IMSG_RANDOM_SELECTED {
 }
 
 
-interface IMSG_BECOME_TARGET {
+export interface IMSG_BECOME_TARGET {
   type: 'MSG_BECOME_TARGET';
   data: {
     cards: {
@@ -863,7 +864,7 @@ interface IMSG_BECOME_TARGET {
 }
 
 
-interface IMSG_DRAW {
+export interface IMSG_DRAW {
   type: 'MSG_DRAW';
   data: {
     player: number;
@@ -874,7 +875,7 @@ interface IMSG_DRAW {
 }
 
 
-interface IMSG_DAMAGE {
+export interface IMSG_DAMAGE {
   type: 'MSG_DAMAGE';
   data: {
     player: number;
@@ -883,7 +884,7 @@ interface IMSG_DAMAGE {
 }
 
 
-interface IMSG_RECOVER {
+export interface IMSG_RECOVER {
   type: 'MSG_RECOVER';
   data: {
     player: number;
@@ -892,7 +893,7 @@ interface IMSG_RECOVER {
 }
 
 
-interface IMSG_LPUPDATE {
+export interface IMSG_LPUPDATE {
   type: 'MSG_LPUPDATE';
   data: {
     player: number;
@@ -901,7 +902,7 @@ interface IMSG_LPUPDATE {
 }
 
 
-interface IMSG_PAY_LPCOST {
+export interface IMSG_PAY_LPCOST {
   type: 'MSG_PAY_LPCOST';
   data: {
     player: number;
@@ -910,7 +911,7 @@ interface IMSG_PAY_LPCOST {
 }
 
 
-interface IMSG_EQUIP {
+export interface IMSG_EQUIP {
   type: 'MSG_EQUIP';
   data: {
     controller1: number;
@@ -925,7 +926,7 @@ interface IMSG_EQUIP {
 }
 
 
-interface IMSG_UNEQUIP {
+export interface IMSG_UNEQUIP {
   type: 'MSG_UNEQUIP';
   data: {
     controller1: number;
@@ -936,7 +937,7 @@ interface IMSG_UNEQUIP {
 }
 
 
-interface IMSG_CARD_TARGET {
+export interface IMSG_CARD_TARGET {
   type: 'MSG_CARD_TARGET';
   data: {
     controller1: number;
@@ -951,7 +952,7 @@ interface IMSG_CARD_TARGET {
 }
 
 
-interface IMSG_CANCEL_TARGET {
+export interface IMSG_CANCEL_TARGET {
   type: 'MSG_CANCEL_TARGET';
   data: {
     controller1: number;
@@ -966,7 +967,7 @@ interface IMSG_CANCEL_TARGET {
 }
 
 
-interface IMSG_ADD_COUNTER {
+export interface IMSG_ADD_COUNTER {
   type: 'MSG_ADD_COUNTER';
   data: {
     type: number;
@@ -978,7 +979,7 @@ interface IMSG_ADD_COUNTER {
 }
 
 
-interface IMSG_REMOVE_COUNTER {
+export interface IMSG_REMOVE_COUNTER {
   type: 'MSG_REMOVE_COUNTER';
   data: {
     type: number;
@@ -990,7 +991,7 @@ interface IMSG_REMOVE_COUNTER {
 }
 
 
-interface IMSG_ATTACK {
+export interface IMSG_ATTACK {
   type: 'MSG_ATTACK';
   data: {
     atk_controller: number;
@@ -1005,7 +1006,7 @@ interface IMSG_ATTACK {
 }
 
 
-interface IMSG_BATTLE {
+export interface IMSG_BATTLE {
   type: 'MSG_BATTLE';
   data: {
     atk_controller: number;
@@ -1026,25 +1027,25 @@ interface IMSG_BATTLE {
 }
 
 
-interface IMSG_ATTACK_DISABLED {
+export interface IMSG_ATTACK_DISABLED {
   type: 'MSG_ATTACK_DISABLED';
   data: { }
 }
 
 
-interface IMSG_DAMAGE_STEP_START {
+export interface IMSG_DAMAGE_STEP_START {
   type: 'MSG_DAMAGE_STEP_START';
   data: { }
 }
 
 
-interface IMSG_DAMAGE_STEP_END {
+export interface IMSG_DAMAGE_STEP_END {
   type: 'MSG_DAMAGE_STEP_END';
   data: { }
 }
 
 
-interface IMSG_MISSED_EFFECT {
+export interface IMSG_MISSED_EFFECT {
   type: 'MSG_MISSED_EFFECT';
   data: {
     ignore: number;
@@ -1053,7 +1054,7 @@ interface IMSG_MISSED_EFFECT {
 }
 
 
-interface IMSG_TOSS_COIN {
+export interface IMSG_TOSS_COIN {
   type: 'MSG_TOSS_COIN';
   data: {
     player: number;
@@ -1064,7 +1065,7 @@ interface IMSG_TOSS_COIN {
 }
 
 
-interface IMSG_TOSS_DICE {
+export interface IMSG_TOSS_DICE {
   type: 'MSG_TOSS_DICE';
   data: {
     player: number;
@@ -1075,7 +1076,7 @@ interface IMSG_TOSS_DICE {
 }
 
 
-interface IMSG_ROCK_PAPER_SCISSORS {
+export interface IMSG_ROCK_PAPER_SCISSORS {
   type: 'MSG_ROCK_PAPER_SCISSORS';
   data: {
     player: number;
@@ -1083,7 +1084,7 @@ interface IMSG_ROCK_PAPER_SCISSORS {
 }
 
 
-interface IMSG_HAND_RES {
+export interface IMSG_HAND_RES {
   type: 'MSG_HAND_RES';
   data: {
     res: number;
@@ -1091,7 +1092,7 @@ interface IMSG_HAND_RES {
 }
 
 
-interface IMSG_ANNOUNCE_RACE {
+export interface IMSG_ANNOUNCE_RACE {
   type: 'MSG_ANNOUNCE_RACE';
   data: {
     player: number;
@@ -1101,7 +1102,7 @@ interface IMSG_ANNOUNCE_RACE {
 }
 
 
-interface IMSG_ANNOUNCE_ATTRIB {
+export interface IMSG_ANNOUNCE_ATTRIB {
   type: 'MSG_ANNOUNCE_ATTRIB';
   data: {
     player: number;
@@ -1111,7 +1112,7 @@ interface IMSG_ANNOUNCE_ATTRIB {
 }
 
 
-interface IMSG_ANNOUNCE_CARD {
+export interface IMSG_ANNOUNCE_CARD {
   type: 'MSG_ANNOUNCE_CARD';
   data: {
     player: number;
@@ -1120,7 +1121,7 @@ interface IMSG_ANNOUNCE_CARD {
 }
 
 
-interface IMSG_ANNOUNCE_NUMBER {
+export interface IMSG_ANNOUNCE_NUMBER {
   type: 'MSG_ANNOUNCE_NUMBER';
   data: {
     player: number;
@@ -1131,7 +1132,7 @@ interface IMSG_ANNOUNCE_NUMBER {
 }
 
 
-interface IMSG_ANNOUNCE_CARD_FILTER {
+export interface IMSG_ANNOUNCE_CARD_FILTER {
   type: 'MSG_ANNOUNCE_CARD_FILTER';
   data: {
     player: number;
@@ -1142,7 +1143,7 @@ interface IMSG_ANNOUNCE_CARD_FILTER {
 }
 
 
-interface IMSG_CARD_HINT {
+export interface IMSG_CARD_HINT {
   type: 'MSG_CARD_HINT';
   data: {
     controller: number;
@@ -1155,7 +1156,7 @@ interface IMSG_CARD_HINT {
 }
 
 
-interface IMSG_PLAYER_HINT {
+export interface IMSG_PLAYER_HINT {
   type: 'MSG_PLAYER_HINT';
   data: {
     player: number;
@@ -1165,7 +1166,7 @@ interface IMSG_PLAYER_HINT {
 }
 
 
-interface IMSG_MATCH_KILL {
+export interface IMSG_MATCH_KILL {
   type: 'MSG_MATCH_KILL';
   data: {
     match_kill: number;
@@ -1173,7 +1174,7 @@ interface IMSG_MATCH_KILL {
 }
 
 
-interface IMSG_RELOAD_FIELD {
+export interface IMSG_RELOAD_FIELD {
   type: 'MSG_RELOAD_FIELD';
   data: {
     duel_rule: number;
@@ -1212,7 +1213,7 @@ interface IMSG_RELOAD_FIELD {
 }
 
 
-type IMSG =
+export type IMSG =
     IMSG_RETRY
   | IMSG_HINT
   | IMSG_WIN
@@ -1299,7 +1300,7 @@ type IMSG =
   | IMSG_MATCH_KILL
   | IMSG_RELOAD_FIELD;
 
-const MsgTypes = {
+export const MsgTypes = {
   MSG_RETRY: 'MSG_RETRY',
   MSG_HINT: 'MSG_HINT',
   MSG_WIN: 'MSG_WIN',
