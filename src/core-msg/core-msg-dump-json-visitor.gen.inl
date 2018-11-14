@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 struct CoreMsgDumpJsonVisitor {
   std::string operator ()(const CoreMsg_RETRY &msg) const { return dump_json_CoreMsg_RETRY(msg); }
   std::string operator ()(const CoreMsg_HINT &msg) const { return dump_json_CoreMsg_HINT(msg); }

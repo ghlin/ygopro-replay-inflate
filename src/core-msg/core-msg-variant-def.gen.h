@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 using CoreMsg = std::variant
   < CoreMsg_RETRY
   , CoreMsg_HINT

@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 static inline std::string dump_CoreMsg_RETRY(const CoreMsg_RETRY &msg) {
   (void)msg;
   std::string dump = "[[MSG_RETRY]]\n";
@@ -164,7 +162,7 @@ static inline std::string dump_CoreMsg_SELECT_OPTION(const CoreMsg_SELECT_OPTION
   dump += "\n  candidates :: Candidate[" + std::to_string(msg.candidates.size()) + "] =";
   for (const auto &it: msg.candidates) {
     dump += "\n  {";
-    dump += "\n    option_id :: u8  = " + format_value(it.option_id);
+    dump += "\n    option_id :: u32 = " + format_value(it.option_id);
     dump += "\n  }";
   }
   return dump;

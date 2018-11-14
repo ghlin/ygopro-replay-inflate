@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 CoreMsg_RETRY
 unpack_CoreMsg_RETRY(buffer_ptr *in, buffer_ptr end)
 {
@@ -184,7 +182,7 @@ unpack_CoreMsg_SELECT_OPTION(buffer_ptr *in, buffer_ptr end)
   const auto candidates = buffer_next<u8>(in, end, "(candidates / u8)", __LINE__, __func__);
   for (unsigned i = 0; i != candidates; ++i) {
     CoreMsg_SELECT_OPTION::Candidate unpacking;
-    unpacking.option_id = buffer_next<u8>(in, end, "(option_id / u8)", __LINE__, __func__);
+    unpacking.option_id = buffer_next<u32>(in, end, "(option_id / u32)", __LINE__, __func__);
     out.candidates.emplace_back(std::move(unpacking));
   }
   return out;

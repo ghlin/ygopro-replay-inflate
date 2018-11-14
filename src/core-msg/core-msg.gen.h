@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 struct CoreMsg_RETRY {
 };
 
@@ -97,7 +95,7 @@ struct CoreMsg_SELECT_YESNO {
 struct CoreMsg_SELECT_OPTION {
   u8  player;
   struct Candidate {
-    u8  option_id;
+    u32 option_id;
   };
   std::vector<Candidate> candidates;
 };

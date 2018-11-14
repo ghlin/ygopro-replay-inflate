@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 switch (msg_type) {
   case MSG_RETRY: {
     return { unpack_CoreMsg_RETRY(in, end) };

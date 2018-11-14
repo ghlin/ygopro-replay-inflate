@@ -1,5 +1,3 @@
-/* !!! Generated code, DO NOT EDIT !!! */
-
 
 std::string
 dump_json_CoreMsg_RETRY(const CoreMsg_RETRY &msg) {
