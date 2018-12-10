@@ -3,6 +3,8 @@ SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 PROJECT(core)
 
+INCLUDE_DIRECTORIES(../lua)
+
 SET(CORE_SRC
   ../core/scriptlib.cpp
   ../core/libdebug.cpp
